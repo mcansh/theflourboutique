@@ -20,10 +20,9 @@ gems:
   - bourbon
   - jekyll-sitemap
   - octopress-autoprefixer
-  - nokogiri
-  - fastimage
 exclude:
   - node_modules
   - gulpfile.js
   - package.json
   - theflourboutique-coming-soon.zip
+  - _posts

@@ -109,7 +109,8 @@ footer {
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
           -ms-flex-direction: column;
-              flex-direction: column; } }
+              flex-direction: column;
+      margin-bottom: 20px; } }
   footer p {
     margin: 0 10px; }
     @media (max-width: 550px) {
@@ -195,7 +196,7 @@ footer {
     background: #3080e8; }
 
 .wrapper p {
-  max-width: 50vw;
+  max-width: 70vw;
   text-align: left;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -212,4 +213,5 @@ footer {
       max-width: 95vw; } }
   @media (min-width: 1000px) {
     .wrapper p {
-      font-size: 1.3em; } }
+      font-size: 1.3em;
+      max-width: 50vw; } }
