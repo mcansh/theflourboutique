@@ -1,0 +1,29 @@
+# Site settings
+title: The Flour Boutique
+description: The Flour Boutique is a bakery from Lynette McAnsh based in Utica, Michigan. Cookies range from various shapes and sizes as well as from basic to elaborate.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://theflourboutique.com" # the base hostname & protocol for your site
+timezone: America/Detroit
+author: Logan McAnsh
+theme-color: peachpuff
+
+# Social Links
+facebook: theflourboutique
+email: theflourboutiquecookies@gmail.com
+
+# Build settings
+markdown: kramdown
+sass:
+  style: nested
+  #sass_dir: css
+gems:
+  - bourbon
+  - jekyll-sitemap
+  - octopress-autoprefixer
+  - nokogiri
+  - fastimage
+exclude:
+  - node_modules
+  - gulpfile.js
+  - package.json
+  - theflourboutique-coming-soon.zip
