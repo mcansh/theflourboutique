@@ -71,11 +71,11 @@ body {
   body a {
     margin: 30px 0;
     text-decoration: none;
-    color: peachpuff;
+    color: #ffbf86;
     -webkit-transition: 300ms all ease-in-out;
             transition: 300ms all ease-in-out; }
     body a:hover {
-      color: #ffbf86; }
+      color: #ffa453; }
     body a.btn {
       padding: 20px 40px;
       background: peachpuff;
