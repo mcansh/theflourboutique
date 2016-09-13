@@ -1,22 +1,22 @@
-a.back-to-home(href="../") Back to home
-.wrapper
-  h1 The Flour Boutique Price Guide
-  .price-wrapper
-    mixin cookie(size, basic, detailed)
-      .price
-        .size= size
-        .basic= basic
-        .detailed= detailed
-    .price
-      .size Per Cookie
-      .basic Basic <br> (1 Color)
-      .detailed Detailed <br> (2-5 Colors)
-    +cookie('1"', '$1.00', '$1.25')
-    +cookie('2"', '$1.75', '$2.00')
-    +cookie('3"', '$2.75', '$3.00')
-    +cookie('4"', '$3.75', '$4.00')
-    +cookie('5"', '$4.75', '$5.00')
-    +cookie('6"', '$5.75', '$6.00')
+a.back-to-home(href="/") Back to home
 
-  
-  p Please note: these are approx.sizes, they may not be full size of box, price goes by which ever side is longest. (there is some exception to the price... example: if cookie is 5”x3” it would go by the 4” size. The majority of cookies fall into the detail range and most are at least 3” size. All cookies are sold in 1 dozen or more unless I am offering prepackaged sets. 2 week notice is a must.
+h1 The Flour Boutique Price Guide
+.price-wrapper
+  mixin cookie(size, basic, detailed)
+    .price
+      .size= size
+      .basic= basic
+      .detailed= detailed
+  .price
+    .size Per Cookie
+    .basic Basic <br> (1 Color)
+    .detailed Detailed <br> (2-5 Colors)
+  +cookie('1"', '$1.00', '$1.25')
+  +cookie('2"', '$1.75', '$2.00')
+  +cookie('3"', '$2.75', '$3.00')
+  +cookie('4"', '$3.75', '$4.00')
+  +cookie('5"', '$4.75', '$5.00')
+  +cookie('6"', '$5.75', '$6.00')
+
+
+p Please note: these are approx.sizes, they may not be full size of box, price goes by which ever side is longest. (there is some exception to the price... example: if cookie is 5”x3” it would go by the 4” size. The majority of cookies fall into the detail range and most are at least 3” size. All cookies are sold in 1 dozen or more unless I am offering prepackaged sets. 2 week notice is a must.

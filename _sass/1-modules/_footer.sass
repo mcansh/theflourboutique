@@ -1,0 +1,22 @@
+footer
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: row
+  width: 100vw
+  height: 100px
+  @media (max-width: 550px)
+    flex-direction: column
+    margin-bottom: 20px
+  p
+    margin: 0 10px
+    @media (max-width: 550px)
+      margin: 10px 0
+      order: -1
+  a
+    margin: 0 10px
+    color: #666
+    @media (max-width: 550px)
+      margin: 10px 0
+    &:hover
+      color: black

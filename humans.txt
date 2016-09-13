@@ -1,0 +1,19 @@
+---
+---
+
+/* TEAM */
+Creator: {{ site.creator.name }}
+Contact: {{ site.creator.email }}
+Facebook: {{ site.creator.facebook }}
+Location: {{ site.creator.location }}
+
+Web Developer: {{site.webdev.name}}
+Twitter: {{site.webdev.twitter}}
+GitHub: {{site.webdev.github}}
+Contact: {{site.webdev.email}}
+Location: {{site.webdev.location}}
+
+/* SITE */
+Last update: {{ site.time | date: '%F' }}
+Standards: {{ site.tools.standards }}
+Software: {{ site.tools.software }}
