@@ -1,0 +1,39 @@
+.overlay
+  opacity: 0
+  visibility: hidden
+  width: 100vw
+  height: 100vh
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  &::after
+    content: ""
+    background: rgba(black,0)
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+.overlay.visible
+  opacity: 1
+  visibility: visible
+  &::after
+    background: rgba(black,0.7)
+.gallery
+  margin-top: 50px
+  display: flex
+  flex-flow: row wrap
+  max-width: calc(900px + 30px)
+  &.overlay
+
+  .gallery-image
+    +size(300px)
+    margin: 5px
+    overflow: hidden
+    img
+      width: 100%
+      &.enlarge
+        border: 10px solid $blue
+        z-index: 2
