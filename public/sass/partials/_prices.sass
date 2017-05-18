@@ -1,5 +1,18 @@
 .price-wrapper
   box-shadow: 0px 4px 16px rgba(38, 38, 38, .1)
+  & + p
+    max-width: 70vw
+    text-align: left
+    display: flex
+    justify-content: center
+    align-items: center
+    margin: 20px auto
+    @media (max-width: 550px)
+      max-width: 95vw
+    @media (min-width: 1000px)
+      font-size: 1.3em
+      max-width: 50vw
+
 
 .price
   display: flex
@@ -32,16 +45,3 @@
     background: salmon
   &:nth-of-type(7)
     background: $blue
-
-p
-  max-width: 70vw
-  text-align: left
-  display: flex
-  justify-content: center
-  align-items: center
-  margin: 20px auto
-  @media (max-width: 550px)
-    max-width: 95vw
-  @media (min-width: 1000px)
-    font-size: 1.3em
-    max-width: 50vw

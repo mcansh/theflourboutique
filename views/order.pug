@@ -5,36 +5,35 @@ block content
   <!--[if IE 8]><div class="logo"></div><![endif]-->
     
   h1 Cookie Order Quote
-  .form-wrap
-    form
-      label(for="name") Name:
-      input#name(type="text" name="Name" placeholder="Name" required)
-      label(for="email") Email:
-      input#email(type="email" name="Email" placeholder="Email" required)
-      label(for="city") City:
-      input#city(type="text" name="City" placeholder="City" required)
-      label(for="date") Date Of Event:
-      input#date(type="date" name="Date" placeholder="Date" required)
-      label(for="theme") Theme:
-      input#theme(type="text" name="Theme" placeholder="Ex: wedding shower, baby shower, birthday" required)
-      label(for="quantity") Quantity:
-      input#quantity(type="number" name="Quantity" placeholder="Quantity (minumum order 12 cookies)" min="12" required)
-      label(for="flavor") Flavor:
-      select(id="flavor" name="Flavor" required)
-        option(selected disabled) Flavor of Cookies
-        option Vanilla sugar cookie with almond royal icing
-        option Chocolate cookie with vanilla royal icing
-        option Lemon poppyseed sugar cookie with lemon royal icing
-        option Lemon sugar cookie with raspberry royal icing
-        option Cookies and Cream sugar cookie with Cookies and Cream royal icing
-        option Mint Chocolate Chip cookie with mint royal icing
-      
-      label(for="comments") Comments
-      textarea#comments(name="Comments")
+  form(method="POST" action="/order")
+    label(for="name") Name:
+    input#name(type="text" name="name" placeholder="Name" required)
+    label(for="email") Email:
+    input#email(type="email" name="email" placeholder="Email" required)
+    label(for="city") City:
+    input#city(type="text" name="city" placeholder="City" required)
+    label(for="date") Date of Event:
+    input#date(type="date" name="date" placeholder="Date" required)
+    label(for="theme") Theme:
+    input#theme(type="text" name="theme" placeholder="Ex: wedding shower, baby shower, birthday" required)
+    label(for="quantity") Quantity:
+    input#quantity(type="number" name="quantity" placeholder="Quantity (minumum order 12 cookies)" min="12" required)
+    label(for="flavor") Flavor:
+    select(id="flavor" name="flavor" required)
+      option(selected disabled) Flavor of Cookies
+      option Vanilla sugar cookie with almond royal icing
+      option Chocolate cookie with vanilla royal icing
+      option Lemon poppyseed sugar cookie with lemon royal icing
+      option Lemon sugar cookie with raspberry royal icing
+      option Cookies and Cream sugar cookie with Cookies and Cream royal icing
+      option Mint Chocolate Chip cookie with mint royal icing
+    
+    label(for="comments") Comments
+    textarea#comments(name="comments")
 
-      input(type="submit" value="Submit" disabled)
-      
-    .notes
-      p Must give at least 3 weeks notice. I book up fast so please order early.
-      p I do not ship cookies. I will drive 5 miles to deliver for free. If you live further, we could meet half way.
-      p Normal response time is 24-48 hours.
+    input.btn(type="submit" value="Submit")
+    
+  .notes
+    p Must give at least 3 weeks notice. I book up fast so please order early.
+    p I do not ship cookies. I will drive 5 miles to deliver for free. If you live further, we could meet half way.
+    p Normal response time is 24-48 hours.

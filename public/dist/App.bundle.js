@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -585,20 +585,6 @@ exports.$$ = $$;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var url = 'https://script.google.com/macros/s/AKfycbyQIK8cYrFdTQCZ0AbFkTCMcYYLb47S1gHHoWzbH0MxhlVchB1X/exec';
-
-exports.default = url;
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
 var __WEBPACK_AMD_DEFINE_RESULT__;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -936,47 +922,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 }).call(undefined);
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 4 */
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-function serialize(form) {
-  var field = void 0;
-  var s = [];
-  var i = void 0;
-  var j = void 0;
-  if ((typeof form === 'undefined' ? 'undefined' : _typeof(form)) === 'object' && form.nodeName === 'FORM') {
-    var len = form.elements.length;
-    for (i = 0; i < len; i += 1) {
-      field = form.elements[i];
-      if (field.name && !field.disabled && field.type !== 'file' && field.type !== 'reset' && field.type !== 'submit' && field.type !== 'button') {
-        if (field.type === 'select-multiple') {
-          for (j = form.elements[i].options.length - 1; j >= 0; j -= 1) {
-            if (field.options[j].selected) {
-              s[s.length] = encodeURIComponent(field.name) + '=' + encodeURIComponent(field.options[j].value);
-            }
-          }
-        } else if (field.type !== 'checkbox' && field.type !== 'radio' || field.checked) {
-          s[s.length] = encodeURIComponent(field.name) + '=' + encodeURIComponent(field.value);
-        }
-      }
-    }
-  }
-  return s.join('&');
-}
-
-exports.default = serialize;
+// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -984,19 +936,13 @@ exports.default = serialize;
 
 __webpack_require__(0);
 
+__webpack_require__(4);
+
 var _bling = __webpack_require__(2);
 
-var _pace = __webpack_require__(4);
+var _pace = __webpack_require__(3);
 
 var _pace2 = _interopRequireDefault(_pace);
-
-var _config = __webpack_require__(3);
-
-var _config2 = _interopRequireDefault(_config);
-
-var _serialize = __webpack_require__(5);
-
-var _serialize2 = _interopRequireDefault(_serialize);
 
 var _autocomplete = __webpack_require__(1);
 
@@ -1006,65 +952,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 _pace2.default.start();
 (0, _autocomplete2.default)((0, _bling.$)('#city'));
-
-// set minimum date to now
-var date = new Date().toISOString().substr(0, 10);
-(0, _bling.$)('#date').min = date;
-
-(0, _bling.$)('#date').on('input', function () {
-  if (this.value !== '') {
-    this.style.color = 'black';
-  } else {
-    this.style.color = 'rgba(0, 0, 0, 0.37)';
-  }
-  if (this.value === this.min) {
-    this.classList.add('error');
-  } else {
-    this.classList.remove('error');
-  }
-});
-
-(0, _bling.$)('select').on('change', function () {
-  this.style.color = 'black';
-});
-
-function checkForm() {
-  if ((0, _bling.$)('select').value !== (0, _bling.$)('option[disabled]').textContent && (0, _bling.$)('form').checkValidity()) {
-    (0, _bling.$)('input[type="submit"]').disabled = false;
-  } else {
-    (0, _bling.$)('input[type="submit"]').disabled = true;
-  }
-}
-
-(0, _bling.$)('select').on('input', checkForm);
-
-(0, _bling.$$)('input').forEach(function (input) {
-  input.on('change', checkForm);
-});
-
-// submit to google form
-function sendToGoogleForm(event) {
-  event.preventDefault();
-  var serializedData = (0, _serialize2.default)((0, _bling.$)('form'));
-  console.log(serializedData);
-
-  (0, _bling.$)('input[type="submit"]').disabled = true;
-
-  fetch(_config2.default, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: serializedData
-  }).then(function (blob) {
-    return blob.json();
-  }).then(function (data) {
-    console.log(data);
-    (0, _bling.$)('.form-wrap').textContent = 'Order successfully submitted';
-  }).catch(function (err) {
-    console.error('The following error occured: ' + err);
-  });
-}
-
-(0, _bling.$)('form').addEventListener('submit', sendToGoogleForm);
 
 /***/ })
 /******/ ]);

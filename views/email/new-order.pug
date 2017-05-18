@@ -1,0 +1,13 @@
+extends email-layout
+
+block content
+  h2 New Order from #{order.name}!
+  h3 Order Details:
+  p Name: #{order.name}
+  p Email: #{order.email}
+  p City: #{order.city}
+  p Event Date: #{order.date}
+  p Theme: #{order.theme}
+  p Quantity: #{order.quantity}
+  p Flavor: #{order.flavor}
+  p Comments: #{order.comments}

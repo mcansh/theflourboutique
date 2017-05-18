@@ -68,16 +68,17 @@ a
   &:hover
     color: darken($peach, 20%)
 
-  &.btn
-    padding: 20px 40px
-    background: $peach
-    border-radius: 5px
-    color: black
-    transition: 300ms padding cubic-bezier(0, 2.08, 0.44, 1.13), 300ms background ease-in-out
-    &:hover
-      background: darken($peach, 10%)
-      padding-left: 60px
-      padding-right: 60px
+.btn
+  padding: 20px 40px
+  background: $peach
+  border-radius: 5px
+  color: black
+  transition: 300ms padding cubic-bezier(0, 2.08, 0.44, 1.13), 300ms background ease-in-out
+  &:hover
+    background: darken($peach, 10%)
+    padding-left: 60px
+    padding-right: 60px
+    color: currentColor
 
 .back-to-home
   position: absolute

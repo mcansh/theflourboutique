@@ -472,16 +472,18 @@ a {
   transition: 300ms all ease-in-out; }
   a:hover {
     color: #ffa453; }
-  a.btn {
-    padding: 20px 40px;
-    background: peachpuff;
-    border-radius: 5px;
-    color: black;
-    transition: 300ms padding cubic-bezier(0, 2.08, 0.44, 1.13), 300ms background ease-in-out; }
-    a.btn:hover {
-      background: #ffbf86;
-      padding-left: 60px;
-      padding-right: 60px; }
+
+.btn {
+  padding: 20px 40px;
+  background: peachpuff;
+  border-radius: 5px;
+  color: black;
+  transition: 300ms padding cubic-bezier(0, 2.08, 0.44, 1.13), 300ms background ease-in-out; }
+  .btn:hover {
+    background: #ffbf86;
+    padding-left: 60px;
+    padding-right: 60px;
+    color: currentColor; }
 
 .back-to-home {
   position: absolute;
@@ -544,51 +546,25 @@ footer {
     footer a:hover {
       color: black; }
 
-.overlay {
-  opacity: 0;
-  visibility: hidden;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0; }
-  .overlay::after {
-    content: "";
-    background: transparent;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0; }
-
-.overlay.visible {
-  opacity: 1;
-  visibility: visible; }
-  .overlay.visible::after {
-    background: rgba(0, 0, 0, 0.7); }
-
-.gallery {
-  margin-top: 50px;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-flow: row wrap;
-      flex-flow: row wrap;
-  max-width: calc(900px + 30px); }
-  .gallery .gallery-image {
-    height: 300px;
-    width: 300px;
-    margin: 5px;
-    overflow: hidden; }
-    .gallery .gallery-image img {
-      width: 100%; }
-      .gallery .gallery-image img.enlarge {
-        border: 10px solid #3080e8;
-        z-index: 2; }
-
 .price-wrapper {
   box-shadow: 0px 4px 16px rgba(38, 38, 38, 0.1); }
+  .price-wrapper + p {
+    max-width: 70vw;
+    text-align: left;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center;
+    margin: 20px auto; }
+    @media (max-width: 550px) {
+      .price-wrapper + p {
+        max-width: 95vw; } }
+    @media (min-width: 1000px) {
+      .price-wrapper + p {
+        font-size: 1.3em;
+        max-width: 50vw; } }
 
 .price {
   display: -ms-flexbox;
@@ -629,22 +605,52 @@ footer {
   .price:nth-of-type(7) {
     background: #3080e8; }
 
-p {
-  max-width: 70vw;
-  text-align: left;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: center;
-      justify-content: center;
-  -ms-flex-align: center;
-      align-items: center;
-  margin: 20px auto; }
-  @media (max-width: 550px) {
-    p {
-      max-width: 95vw; } }
-  @media (min-width: 1000px) {
-    p {
-      font-size: 1.3em;
-      max-width: 50vw; } }
+form {
+  max-width: 400px;
+  width: 90%;
+    width-margin: 0 auto; }
+  form label {
+    color: rgba(0, 0, 0, 0.4);
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 2px 0; }
+  form input, form select, form textarea {
+    max-width: 100%;
+    width: 100%;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    border: 1px solid #feeeed;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    background: white;
+    border-radius: 5px;
+    outline: none; }
+    form input::-webkit-input-placeholder, form select::-webkit-input-placeholder, form textarea::-webkit-input-placeholder {
+      color: rgba(0, 0, 0, 0.4); }
+    form input:-ms-input-placeholder, form select:-ms-input-placeholder, form textarea:-ms-input-placeholder {
+      color: rgba(0, 0, 0, 0.4); }
+    form input::placeholder, form select::placeholder, form textarea::placeholder {
+      color: rgba(0, 0, 0, 0.4); }
+    form input:focus::-webkit-input-placeholder, form select:focus::-webkit-input-placeholder, form textarea:focus::-webkit-input-placeholder {
+      color: transparent; }
+    form input:focus:-ms-input-placeholder, form select:focus:-ms-input-placeholder, form textarea:focus:-ms-input-placeholder {
+      color: transparent; }
+    form input:focus::placeholder, form select:focus::placeholder, form textarea:focus::placeholder {
+      color: transparent; }
+    form input[type="submit"], form select[type="submit"], form textarea[type="submit"] {
+      padding: 10px 15px; }
+
+.notes {
+  max-width: 400px;
+  width: 90%;
+  margin: 0 auto 30px auto;
+  text-align: left; }
+  .notes p {
+    margin: 5px 0;
+    line-height: 1.5; }
+    .notes p::before {
+      content: '* '; }
 
 /*# sourceMappingURL=style.css.map*/

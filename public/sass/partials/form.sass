@@ -1,0 +1,39 @@
+form
+  max-width: 400px
+  width: 90%
+   margin: 0 auto
+
+  label
+    color: rgba(black, 0.4)
+    display: block
+    text-align: left
+    width: 100%
+    margin: 2px 0
+
+  input, select, textarea
+    max-width: 100%
+    width: 100%
+    appearance: none
+    border: 1px solid $main
+    padding: 10px 15px
+    margin-bottom: 5px
+    background: white
+    border-radius: 5px
+    outline: none
+    &::placeholder
+      color: rgba(black, 0.4)
+    &:focus::placeholder
+      color: transparent
+    &[type="submit"]
+      padding: 10px 15px
+
+.notes
+  max-width: 400px
+  width: 90%
+  margin: 0 auto 30px auto
+  text-align: left
+  p
+    margin: 5px 0
+    line-height: 1.5
+    &::before
+      content: '* '
