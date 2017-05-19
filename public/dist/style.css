@@ -486,9 +486,8 @@ a {
     color: currentColor; }
 
 .back-to-home {
-  position: absolute;
-  left: 0;
-  top: 0;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   padding: 10px;
   text-decoration: none;
   color: black;
@@ -652,5 +651,32 @@ form {
     line-height: 1.5; }
     .notes p::before {
       content: '* '; }
+
+.flash {
+  width: 80vw;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  border: 3px solid black;
+  padding: 10px 20px;
+  border-radius: 4px; }
+  .flash .flash__remove {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    background: none;
+    border: none;
+    cursor: pointer; }
+  .flash .flash__text {
+    -ms-flex-positive: 1;
+        flex-grow: 1;
+    text-align: left; }
+  .flash.flash--success {
+    border-color: #C6DD7D; }
+  .flash.flash--error {
+    border-color: orangered; }
+  .flash.flash--info {
+    border-color: #3080e8; }
 
 /*# sourceMappingURL=style.css.map*/

@@ -21,7 +21,7 @@ html
     //  End Google Tag Manager 
 
   body
-
+    block back-to-home
     block messages
       if locals.flashes
         .inner
@@ -32,6 +32,7 @@ html
                 .flash(class=`flash--${category}`)
                   p.flash__text!= message
                   button.flash__remove(onClick="this.parentElement.remove()") &times;
+    
     .wrapper
       block content
       
