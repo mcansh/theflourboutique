@@ -15,20 +15,17 @@ block content
     label(for="city") City:
     input#city(type="text" name="city" placeholder="City" required)
     label(for="date") Date of Event:
-    input#date(type="date" name="date" placeholder="Date" required)
+    input#date(type="date" name="date" placeholder="Date" required date-format="mm/dd/yyyy")
     label(for="theme") Theme:
     input#theme(type="text" name="theme" placeholder="Ex: wedding shower, baby shower, birthday" required)
     label(for="quantity") Quantity:
     input#quantity(type="number" name="quantity" placeholder="Quantity (minumum order 12 cookies)" min="12" required)
     label(for="flavor") Flavor:
+    - const flavors = ['Vanilla sugar cookie with almond royal icing', 'Chocolate cookie with vanilla royal icing', 'Lemon poppyseed sugar cookie with lemon royal icing', 'Lemon sugar cookie with raspberry royal icing', 'Cookies and Cream sugar cookie with Cookies and Cream royal icing', 'Mint Chocolate Chip cookie with mint royal icing']
     select(id="flavor" name="flavor" required)
       option(selected disabled) Flavor of Cookies
-      option Vanilla sugar cookie with almond royal icing
-      option Chocolate cookie with vanilla royal icing
-      option Lemon poppyseed sugar cookie with lemon royal icing
-      option Lemon sugar cookie with raspberry royal icing
-      option Cookies and Cream sugar cookie with Cookies and Cream royal icing
-      option Mint Chocolate Chip cookie with mint royal icing
+      each flavor in flavors
+        option= flavor
     
     label(for="comments") Comments
     textarea#comments(name="comments")

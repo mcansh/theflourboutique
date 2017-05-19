@@ -3816,15 +3816,42 @@ var _raven = __webpack_require__(6);
 
 var _raven2 = _interopRequireDefault(_raven);
 
+var _setMinDate = __webpack_require__(20);
+
+var _setMinDate2 = _interopRequireDefault(_setMinDate);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _raven2.default)();
-
 _pace2.default.start();
+(0, _setMinDate2.default)((0, _bling.$)('#date'));
 (0, _autocomplete2.default)((0, _bling.$)('#city'));
-
 var copyright = new Date();
 (0, _bling.$)('footer span').textContent = copyright.getFullYear();
+
+/***/ }),
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+function setMinDate(input) {
+  if (!input) return; // skip this fn from running if there is not input on the page
+  var currentDate = new Date(); //
+  var threeWeeks = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 21).toISOString().substr(0, 10).split('-');
+  input.min = threeWeeks[0] + '-' + threeWeeks[1] + '-' + threeWeeks[2];
+}
+
+exports.default = setMinDate;
 
 /***/ })
 /******/ ]);
