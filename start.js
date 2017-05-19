@@ -18,6 +18,8 @@ mongoose.connection.on('error', (err) => {
 });
 
 // READY?! Let's go!
+
+// load all the models!
 require('./models/Order');
 
 

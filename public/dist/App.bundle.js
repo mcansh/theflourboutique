@@ -953,6 +953,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _pace2.default.start();
 (0, _autocomplete2.default)((0, _bling.$)('#city'));
 
+var copyright = new Date();
+(0, _bling.$)('footer span').textContent = copyright.getFullYear();
+
 /***/ })
 /******/ ]);
 //# sourceMappingURL=App.bundle.js.map

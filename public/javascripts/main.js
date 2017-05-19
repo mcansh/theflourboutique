@@ -6,3 +6,6 @@ import autocomplete from './modules/autocomplete';
 
 pace.start();
 autocomplete($('#city'));
+
+const copyright = new Date();
+$('footer span').textContent = copyright.getFullYear();
