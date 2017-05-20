@@ -23,7 +23,7 @@ const orderSchema = new Schema({
     trim: true
   },
   date: {
-    type: String,
+    type: Date,
     trim: true,
     required: 'Please supply a date for your event'
   },
