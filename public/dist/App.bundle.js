@@ -1026,6 +1026,7 @@ function setMinDate(input) {
   var currentDate = new Date(); //
   var threeWeeks = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 21).toISOString().substr(0, 10).split('-');
   input.min = threeWeeks[0] + '-' + threeWeeks[1] + '-' + threeWeeks[2];
+  input.value = threeWeeks[1] + '-' + threeWeeks[2] + '-' + threeWeeks[0];
 }
 
 exports.default = setMinDate;
