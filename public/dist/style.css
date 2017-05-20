@@ -518,15 +518,15 @@ footer {
       justify-content: center;
   -ms-flex-align: center;
       align-items: center;
-  -ms-flex-direction: column;
-      flex-direction: column;
+  -ms-flex-direction: row;
+      flex-direction: row;
   width: 100vw;
   height: 100px; }
   @media (max-width: 550px) {
     footer {
       -ms-flex-direction: column;
           flex-direction: column;
-      margin-bottom: 20px; } }
+      margin: 20px 0; } }
   footer p {
     margin: 0 10px; }
     @media (max-width: 550px) {
@@ -535,8 +535,6 @@ footer {
         -ms-flex-order: -1;
             order: -1; } }
   footer a {
-    -ms-flex-order: 1;
-        order: 1;
     margin: 10px;
     color: #666; }
     @media (max-width: 550px) {

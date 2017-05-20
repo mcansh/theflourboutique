@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 14);
+/******/ 	return __webpack_require__(__webpack_require__.s = 15);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -995,7 +995,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _ravenJs = __webpack_require__(11);
+var _ravenJs = __webpack_require__(12);
 
 var _ravenJs2 = _interopRequireDefault(_ravenJs);
 
@@ -1013,12 +1013,31 @@ exports.default = setupRaven;
 
 /***/ }),
 /* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+function setMinDate(input) {
+  if (!input) return; // skip this fn from running if there is not input on the page
+  var currentDate = new Date(); //
+  var threeWeeks = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 21).toISOString().substr(0, 10).split('-');
+  input.min = threeWeeks[0] + '-' + threeWeeks[1] + '-' + threeWeeks[2];
+}
+
+exports.default = setMinDate;
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1034,7 +1053,7 @@ RavenConfigError.prototype.constructor = RavenConfigError;
 module.exports = RavenConfigError;
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1071,7 +1090,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1080,15 +1099,15 @@ module.exports = {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var TraceKit = __webpack_require__(12);
-var stringify = __webpack_require__(13);
-var RavenConfigError = __webpack_require__(8);
+var TraceKit = __webpack_require__(13);
+var stringify = __webpack_require__(14);
+var RavenConfigError = __webpack_require__(9);
 var utils = __webpack_require__(1);
 
 var isError = utils.isError,
     isObject = utils.isObject;
 
-var wrapConsoleMethod = __webpack_require__(9).wrapMethod;
+var wrapConsoleMethod = __webpack_require__(10).wrapMethod;
 
 var dsnKeys = 'source protocol user pass host port path'.split(' '),
     dsnPattern = /^(?:(\w+):)?\/\/(?:(\w+)(:\w+)?@)?([\w\.-]+)(?::(\d+))?(\/.*)/;
@@ -3088,7 +3107,7 @@ module.exports = Raven;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3100,7 +3119,7 @@ module.exports = Raven;
 
 
 
-var RavenConstructor = __webpack_require__(10);
+var RavenConstructor = __webpack_require__(11);
 
 // This is to be defensive in environments where window does not exist (see https://github.com/getsentry/raven-js/pull/785)
 var _window = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
@@ -3125,7 +3144,7 @@ module.exports = Raven;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3739,7 +3758,7 @@ module.exports = TraceKit;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3792,7 +3811,7 @@ function serializer(replacer, cycleReplacer) {
 }
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3800,7 +3819,7 @@ function serializer(replacer, cycleReplacer) {
 
 __webpack_require__(2);
 
-__webpack_require__(7);
+__webpack_require__(8);
 
 var _bling = __webpack_require__(4);
 
@@ -3816,7 +3835,7 @@ var _raven = __webpack_require__(6);
 
 var _raven2 = _interopRequireDefault(_raven);
 
-var _setMinDate = __webpack_require__(20);
+var _setMinDate = __webpack_require__(7);
 
 var _setMinDate2 = _interopRequireDefault(_setMinDate);
 
@@ -3828,30 +3847,6 @@ _pace2.default.start();
 (0, _autocomplete2.default)((0, _bling.$)('#city'));
 var copyright = new Date();
 (0, _bling.$)('footer span').textContent = copyright.getFullYear();
-
-/***/ }),
-/* 15 */,
-/* 16 */,
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-function setMinDate(input) {
-  if (!input) return; // skip this fn from running if there is not input on the page
-  var currentDate = new Date(); //
-  var threeWeeks = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 21).toISOString().substr(0, 10).split('-');
-  input.min = threeWeeks[0] + '-' + threeWeeks[1] + '-' + threeWeeks[2];
-}
-
-exports.default = setMinDate;
 
 /***/ })
 /******/ ]);
