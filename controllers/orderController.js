@@ -18,3 +18,8 @@ exports.createOrder = async (req, res) => {
   req.flash('success', 'Order successly received');
   res.redirect('/');
 };
+
+exports.allOrders = async (req, res) => {
+  const orders = await Order.find();
+  res.render('allOrders', { title: 'All Orders', orders });
+};
