@@ -21,7 +21,9 @@ block content
     label(for="quantity") Quantity:
     input#quantity(type="number" name="quantity" placeholder="Quantity (minumum order 12 cookies)" min="12" required)
     label(for="flavor") Flavor:
+    
     - const flavors = ['Vanilla sugar cookie with almond royal icing', 'Chocolate cookie with vanilla royal icing', 'Lemon poppyseed sugar cookie with lemon royal icing', 'Lemon sugar cookie with raspberry royal icing', 'Cookies and Cream sugar cookie with Cookies and Cream royal icing', 'Mint Chocolate Chip cookie with mint royal icing']
+    
     select(id="flavor" name="flavor" required)
       option(selected disabled) Flavor of Cookies
       each flavor in flavors
@@ -33,6 +35,6 @@ block content
     input.btn(type="submit" value="Submit")
     
   .notes
-    p Must give at least 3 weeks notice. I book up fast so please order early.
-    p I do not ship cookies. I will drive 5 miles to deliver for free. If you live further, we could meet half way.
-    p Normal response time is 24-48 hours.
+    - const notes = ['Must give at least 3 weeks notice. I book up fast so please order early.', 'Not accepting any new orders for summer.', 'accepting new orders for delivery 9/5 - 12/15.', 'I will drive 10 miles for free delivery. If you live further than my delivery, you will have to meet me somewhere within the 10 mile zone.', 'Normal response time is 24-48 hours.']
+    each note in notes
+      p= note
