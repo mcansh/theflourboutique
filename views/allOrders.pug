@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h2= title
+  .orders
+    each order in orders
+      .order
+        label(for=order._id) Done? 
+        input(type="checkbox" name="order-done" id=order._id)
+        h2 Event Date: #{order.date}
+        h2 Name: #{order.name}
+        h2 Email: 
+          a(href=`mailto:${order.email}`)= order.email
+        h2 City: 
+          a(href=`https://www.google.com/maps/search/${order.city}`)= order.city
+        h2 Theme: #{order.theme}
+        h2 Quantity: #{order.quantity}
+        h2 Flavor: #{order.flavor}
+        if order.comments
+          h2 Comments: #{order.comments}

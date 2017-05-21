@@ -474,6 +474,7 @@ a {
     color: #ffa453; }
 
 .btn {
+  cursor: pointer;
   padding: 20px 40px;
   background: peachpuff;
   border-radius: 5px;
@@ -649,6 +650,11 @@ form {
     line-height: 1.5; }
     .notes p::before {
       content: '* '; }
+
+.order {
+  background: #feeeed;
+  padding: 20px 40px;
+  margin: 10px; }
 
 .flash {
   width: 80vw;
