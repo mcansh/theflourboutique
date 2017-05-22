@@ -1003,7 +1003,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function setupRaven() {
   if (location.origin !== 'localhost:7777') {
-    _ravenJs2.default.config('https://e8b40de1cd484a9c81932cf111e9c83a@sentry.io/163976', {
+    _ravenJs2.default.config('https://2b010463aa1242ca8ecda627539c5338@sentry.io/170090', {
       release: '0.0.2'
     }).install();
   }
