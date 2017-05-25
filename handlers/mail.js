@@ -6,8 +6,15 @@ const promisify = require('es6-promisify');
 
 const transport = nodemailer.createTransport({
   service: 'Postmark',
-  // host: process.env.MAIL_HOST,
-  // port: process.env.MAIL_PORT,
+  auth: {
+    user: process.env.MAIL_USER,
+    pass: process.env.MAIL_PASS
+  }
+});
+
+const devTransport = nodemailer.createTransport({
+  host: process.env.MAIL_HOST,
+  port: process.env.MAIL_PORT,
   auth: {
     user: process.env.MAIL_USER,
     pass: process.env.MAIL_PASS
@@ -30,6 +37,12 @@ exports.send = async (options) => {
     html,
     text
   };
+
+  const sendDevMail = promisify(transport.sendDevMail, devTransport);
   const sendMail = promisify(transport.sendMail, transport);
-  return sendMail(mailOptions);
+  if (process.env.NODE_ENV === 'production') {
+    return sendMail(mailOptions);
+  } else {
+    return sendDevMail(mailOptions);
+  }
 };
