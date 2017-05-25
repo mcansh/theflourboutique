@@ -12,9 +12,13 @@ const expressValidator = require('express-validator');
 const routes = require('./routes/index');
 const helpers = require('./helpers');
 const errorHandlers = require('./handlers/errorHandlers');
+const Raven = require('raven');
 
 // create our Express app
 const app = express();
+Raven.config('https://2b010463aa1242ca8ecda627539c5338:345ab0fc871a4e05b8c1c279b103376d@sentry.io/170090').install();
+
+app.use(Raven.requestHandler());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views')); // this is the folder where we keep our pug files
@@ -69,6 +73,7 @@ app.use((req, res, next) => {
 app.use('/', routes);
 
 // If that above routes didnt work, we 404 them and forward to error handler
+app.use(Raven.errorHandler());
 app.use(errorHandlers.notFound);
 
 // One of our error handlers will see if these errors are just validation errors
