@@ -5,6 +5,10 @@ mongoose.Promise = global.Promise;
 const validator = require('validator');
 
 const orderSchema = new Schema({
+  done: {
+    type: Boolean,
+    default: false
+  },
   email: {
     type: String,
     lowercase: true,
