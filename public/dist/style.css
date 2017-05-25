@@ -1,4 +1,5 @@
-@import url(//fonts.googleapis.com/css?family=Open+Sans:300);/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
+@import url(//fonts.googleapis.com/css?family=Open+Sans:300);@charset "UTF-8";
+/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
 /**
@@ -603,17 +604,17 @@ footer {
   .price:nth-of-type(7) {
     background: #3080e8; }
 
-form {
+form.form {
   max-width: 400px;
   width: 90%;
     width-margin: 0 auto; }
-  form label {
+  form.form label {
     color: rgba(0, 0, 0, 0.4);
     display: block;
     text-align: left;
     width: 100%;
     margin: 2px 0; }
-  form input, form select, form textarea {
+  form.form input, form.form select, form.form textarea {
     max-width: 100%;
     width: 100%;
     -webkit-appearance: none;
@@ -625,20 +626,29 @@ form {
     background: white;
     border-radius: 5px;
     outline: none; }
-    form input::-webkit-input-placeholder, form select::-webkit-input-placeholder, form textarea::-webkit-input-placeholder {
+    form.form input::-webkit-input-placeholder, form.form select::-webkit-input-placeholder, form.form textarea::-webkit-input-placeholder {
       color: rgba(0, 0, 0, 0.4); }
-    form input:-ms-input-placeholder, form select:-ms-input-placeholder, form textarea:-ms-input-placeholder {
+    form.form input:-ms-input-placeholder, form.form select:-ms-input-placeholder, form.form textarea:-ms-input-placeholder {
       color: rgba(0, 0, 0, 0.4); }
-    form input::placeholder, form select::placeholder, form textarea::placeholder {
+    form.form input::placeholder, form.form select::placeholder, form.form textarea::placeholder {
       color: rgba(0, 0, 0, 0.4); }
-    form input:focus::-webkit-input-placeholder, form select:focus::-webkit-input-placeholder, form textarea:focus::-webkit-input-placeholder {
+    form.form input:focus::-webkit-input-placeholder, form.form select:focus::-webkit-input-placeholder, form.form textarea:focus::-webkit-input-placeholder {
       color: transparent; }
-    form input:focus:-ms-input-placeholder, form select:focus:-ms-input-placeholder, form textarea:focus:-ms-input-placeholder {
+    form.form input:focus:-ms-input-placeholder, form.form select:focus:-ms-input-placeholder, form.form textarea:focus:-ms-input-placeholder {
       color: transparent; }
-    form input:focus::placeholder, form select:focus::placeholder, form textarea:focus::placeholder {
+    form.form input:focus::placeholder, form.form select:focus::placeholder, form.form textarea:focus::placeholder {
       color: transparent; }
-    form input[type="submit"], form select[type="submit"], form textarea[type="submit"] {
+    form.form input[type="submit"], form.form select[type="submit"], form.form textarea[type="submit"] {
       padding: 10px 15px; }
+
+form.completeOrderForm button[type="submit"] {
+  display: none; }
+  form.completeOrderForm button[type="submit"] + label::after {
+    content: '\2B1C';
+    display: inline-block; }
+
+form.completeOrderForm.checked button[type="submit"] + label::after {
+  content: '\2705'; }
 
 .notes {
   max-width: 400px;

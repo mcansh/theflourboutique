@@ -19,4 +19,8 @@ router.get('/prices', priceController.prices);
 
 router.get('/login', userController.login);
 
+// API
+router.post('/api/orders/:order/done', orderController.completeOrder);
+router.get('/api/orders/:order/done', orderController.completeOrder);
+
 module.exports = router;

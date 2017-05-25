@@ -23,3 +23,14 @@ exports.allOrders = async (req, res) => {
   const orders = await Order.find();
   res.render('allOrders', { title: 'All Orders', orders });
 };
+
+exports.completeOrder = async (req, res) => {
+  const order = await Order.findById(req.params.order);
+  const operator = !order.done;
+  const markedOrder = await Order
+    .findByIdAndUpdate(req.params.order,
+      { $set: { done: operator }},
+      { new: true }
+    );
+  res.json(markedOrder);
+};

@@ -5,8 +5,11 @@ block content
   .orders
     each order in orders
       .order
-        label(for=order._id) Done? 
-        input(type="checkbox" name="order-done" id=order._id)
+        - const complete = order.done ? 'checked' : '';
+        form.completeOrderForm(action=`/api/orders/${order._id}/done` class=complete)
+          button(type="submit" name="done" id=order._id)
+          label(for=order._id) Done? 
+        //- - const date = order.date.substr(0, 10);
         h2 Event Date: #{order.date}
         h2 Name: #{order.name}
         h2 Email: 
