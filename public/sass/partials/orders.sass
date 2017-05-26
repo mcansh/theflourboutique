@@ -1,4 +1,41 @@
+.orders
+  display: flex
+  justify-content: center
+  align-items: stretch
+  flex-flow: row wrap
+
 .order
-  background: $main
   padding: 20px 40px
   margin: 10px
+  border: 10px solid $main
+  width: 33vw
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  position: relative
+  &::before
+    transition: 300ms all ease-in-out
+    content: ''
+    transform: rotate(-30deg)
+    height: 1.5em
+    line-height: 1.5
+    font-size: 1.5em
+    padding: 0 20px
+    position: absolute
+  form
+    margin: 0 0 auto 0
+    &.completeOrderForm
+      button[type="submit"]
+        display: none
+        & + label
+          &::after
+            content: '⬜'
+            display: inline-block
+  &.checked
+    &::before
+      content: 'DONE!'
+      background: darken($main, 10%)
+    form.completeOrderForm
+      button[type="submit"] + label::after
+        content: '✅'

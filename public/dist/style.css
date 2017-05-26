@@ -641,15 +641,6 @@ form.form {
     form.form input[type="submit"], form.form select[type="submit"], form.form textarea[type="submit"] {
       padding: 10px 15px; }
 
-form.completeOrderForm button[type="submit"] {
-  display: none; }
-  form.completeOrderForm button[type="submit"] + label::after {
-    content: '\2B1C';
-    display: inline-block; }
-
-form.completeOrderForm.checked button[type="submit"] + label::after {
-  content: '\2705'; }
-
 .notes {
   max-width: 400px;
   width: 90%;
@@ -661,10 +652,52 @@ form.completeOrderForm.checked button[type="submit"] + label::after {
     .notes p::before {
       content: '* '; }
 
+.orders {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: stretch;
+      align-items: stretch;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap; }
+
 .order {
-  background: #feeeed;
   padding: 20px 40px;
-  margin: 10px; }
+  margin: 10px;
+  border: 10px solid #feeeed;
+  width: 33vw;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  position: relative; }
+  .order::before {
+    transition: 300ms all ease-in-out;
+    content: '';
+    -ms-transform: rotate(-30deg);
+        transform: rotate(-30deg);
+    height: 1.5em;
+    line-height: 1.5;
+    font-size: 1.5em;
+    padding: 0 20px;
+    position: absolute; }
+  .order form {
+    margin: 0 0 auto 0; }
+    .order form.completeOrderForm button[type="submit"] {
+      display: none; }
+      .order form.completeOrderForm button[type="submit"] + label::after {
+        content: '\2B1C';
+        display: inline-block; }
+  .order.checked::before {
+    content: 'DONE!';
+    background: #fbc0bd; }
+  .order.checked form.completeOrderForm button[type="submit"] + label::after {
+    content: '\2705'; }
 
 .flash {
   width: 80vw;

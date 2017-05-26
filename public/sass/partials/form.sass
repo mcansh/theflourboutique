@@ -27,18 +27,6 @@ form.form
     &[type="submit"]
       padding: 10px 15px
 
-
-form.completeOrderForm
-  button[type="submit"]
-    display: none
-    & + label
-      &::after
-        content: '⬜'
-        display: inline-block
-  &.checked
-    button[type="submit"] + label::after
-      content: '✅'
-
 .notes
   max-width: 400px
   width: 90%

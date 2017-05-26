@@ -1449,8 +1449,8 @@ function completeOrder(e) {
 
   e.preventDefault();
   _axios2.default.post(this.action).then(function (res) {
-    var isDone = _this.classList.toggle('checked');
-    console.log(isDone);
+    var isDone = _this.closest('.order').classList.toggle('checked');
+    console.log(res.data);
   }).catch(function (err) {
     return console.error(err);
   });

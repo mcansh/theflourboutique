@@ -1,15 +1,14 @@
 extends layout
 
 block content
-  h2= title
+  h1= title
   .orders
     each order in orders
-      .order
-        - const complete = order.done ? 'checked' : '';
-        form.completeOrderForm(action=`/api/orders/${order._id}/done` class=complete)
+      - const complete = order.done ? 'checked' : '';
+      .order(class=complete)
+        form.completeOrderForm(action=`/api/orders/${order._id}/done`)
           button(type="submit" name="done" id=order._id)
           label(for=order._id) Done? 
-        //- - const date = order.date.substr(0, 10);
         h2 Event Date: #{order.date}
         h2 Name: #{order.name}
         h2 Email: 
