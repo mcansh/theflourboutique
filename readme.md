@@ -1,5 +1,7 @@
 # The Flour Boutique - Node.js
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/mcansh/theflourboutique.svg)](https://greenkeeper.io/)
+
 Needed a form to send an email when there was a new order, accomplished this, plus got to play with node.
 
 ## Set up
