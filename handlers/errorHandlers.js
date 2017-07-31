@@ -14,7 +14,6 @@ exports.catchErrors = (fn) => {
 
 /*
   Not Found Error Handler
-
   If we hit a route that is not found, we mark it as 404 and pass it along to the next error handler to display
 */
 exports.notFound = (req, res, next) => {
@@ -40,7 +39,6 @@ exports.flashValidationErrors = (err, req, res, next) => {
 
 /*
   Development Error Hanlder
-
   In development we show good error messages so if we hit a syntax error or any other previously un-handled error, we can show good info on what happened
 */
 exports.developmentErrors = (err, req, res, next) => {
@@ -63,7 +61,6 @@ exports.developmentErrors = (err, req, res, next) => {
 
 /*
   Production Error Handler
-
   No stacktraces are leaked to user
 */
 exports.productionErrors = (err, req, res, next) => {

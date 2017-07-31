@@ -40,9 +40,6 @@ exports.send = async (options) => {
 
   const sendDevMail = promisify(transport.sendDevMail, devTransport);
   const sendMail = promisify(transport.sendMail, transport);
-  if (process.env.NODE_ENV === 'production') {
-    return sendMail(mailOptions);
-  } else {
-    return sendDevMail(mailOptions);
-  }
+  if (process.env.NODE_ENV === 'production') return sendMail(mailOptions);
+  return sendDevMail(mailOptions);
 };
