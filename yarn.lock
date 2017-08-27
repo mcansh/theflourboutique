@@ -2,10 +2,6 @@
 # yarn lockfile v1
 
 
-"@types/bluebird@^3.4.0":
-  version "3.5.8"
-  resolved "https://registry.yarnpkg.com/@types/bluebird/-/bluebird-3.5.8.tgz#242a83379f06c90f96acf6d1aeab3af6faebdb98"
-
 "@types/express-serve-static-core@*":
   version "4.0.44"
   resolved "https://registry.yarnpkg.com/@types/express-serve-static-core/-/express-serve-static-core-4.0.44.tgz#a1c3bd5d80e93c72fba91a03f5412c47f21d4ae7"
@@ -756,7 +752,7 @@ bluebird@2.10.2:
   version "2.10.2"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-2.10.2.tgz#024a5517295308857f14f91f1106fc3b555f446b"
 
-bluebird@^3.0, bluebird@^3.4.0:
+bluebird@^3.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.0.tgz#791420d7f551eea2897453a8a77653f96606d67c"
 
@@ -2135,15 +2131,13 @@ express-session@^1.15.5:
     uid-safe "~2.1.4"
     utils-merge "1.0.0"
 
-express-validator@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/express-validator/-/express-validator-3.2.1.tgz#45603e7eee693185c2198fbdebd414925ffd3524"
+express-validator@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/express-validator/-/express-validator-4.0.0.tgz#7740b0b1f090222c4e3d25f69c42f4258226096e"
   dependencies:
-    "@types/bluebird" "^3.4.0"
     "@types/express" "~4.0.34"
-    bluebird "^3.4.0"
     lodash "^4.16.0"
-    validator "~6.2.0"
+    validator "~8.1.0"
 
 express@^4.15.4:
   version "4.15.4"
@@ -3068,14 +3062,7 @@ js-tokens@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.1.tgz#08e9f132484a2c45a30907e9dc4d5567b7f114d7"
 
-js-yaml@^3.4.3:
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.9.0.tgz#4ffbbf25c2ac963b8299dc74da7e3740de1c18ce"
-  dependencies:
-    argparse "^1.0.7"
-    esprima "^4.0.0"
-
-js-yaml@^3.9.1:
+js-yaml@^3.4.3, js-yaml@^3.9.1:
   version "3.9.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.9.1.tgz#08775cebdfdd359209f0d2acd383c8f86a6904a0"
   dependencies:
@@ -5235,13 +5222,13 @@ semver-diff@^2.0.0:
   dependencies:
     semver "^5.0.3"
 
-"semver@2 || 3 || 4 || 5", semver@^5.0.3, semver@^5.1.0, semver@^5.3.0, semver@~5.3.0:
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-5.3.0.tgz#9b2ce5d3de02d17c6012ad326aa6b4d0cf54f94f"
-
-semver@^5.4.1:
+"semver@2 || 3 || 4 || 5", semver@^5.0.3, semver@^5.1.0, semver@^5.3.0, semver@^5.4.1:
   version "5.4.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.4.1.tgz#e059c09d8571f0540823733433505d3a2f00b18e"
+
+semver@~5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-5.3.0.tgz#9b2ce5d3de02d17c6012ad326aa6b4d0cf54f94f"
 
 send@0.15.4:
   version "0.15.4"
@@ -5909,9 +5896,9 @@ validator@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/validator/-/validator-8.0.0.tgz#00d6ec230ab5d3353ab1174162a96462b947bdbd"
 
-validator@~6.2.0:
-  version "6.2.1"
-  resolved "https://registry.yarnpkg.com/validator/-/validator-6.2.1.tgz#bc575b78d15beb2e338a665ba9530c7f409ef667"
+validator@~8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/validator/-/validator-8.1.0.tgz#89cf6b512ff71eba886afd8d10d47f8dc800eac0"
 
 vary@~1.1.1:
   version "1.1.1"
