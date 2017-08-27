@@ -4,17 +4,8 @@ const juice = require('juice');
 const htmlToText = require('html-to-text');
 const promisify = require('es6-promisify');
 
-const transport = nodemailer.createTransport({
+let transport = nodemailer.createTransport({
   service: 'Postmark',
-  auth: {
-    user: process.env.MAIL_USER,
-    pass: process.env.MAIL_PASS
-  }
-});
-
-const devTransport = nodemailer.createTransport({
-  host: process.env.MAIL_HOST,
-  port: process.env.MAIL_PORT,
   auth: {
     user: process.env.MAIL_USER,
     pass: process.env.MAIL_PASS
@@ -38,8 +29,17 @@ exports.send = async (options) => {
     text
   };
 
-  const sendDevMail = promisify(transport.sendDevMail, devTransport);
+  if (process.env.NODE_ENV !== 'production') {
+    transport = nodemailer.createTransport({
+      host: process.env.MAIL_HOST,
+      port: 2525,
+      auth: {
+        user: process.env.MAIL_USER,
+        pass: process.env.MAIL_PASS,
+      }
+    });
+  }
+
   const sendMail = promisify(transport.sendMail, transport);
-  if (process.env.NODE_ENV === 'production') return sendMail(mailOptions);
-  return sendDevMail(mailOptions);
+  return sendMail(mailOptions);
 };
