@@ -43,7 +43,7 @@
     "nodemailer": "^4.0.1",
     "passport": "0.3.2",
     "passport-local": "1.0.0",
-    "passport-local-mongoose": "4.1.0",
+    "passport-local-mongoose": "4.2.0",
     "pug": "^2.0.0-rc.3",
     "raven": "^2.1.1",
     "slugs": "0.1.3",
