@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const fs = require('fs');
+const https = require('https');
 
 // Make sure we are running node 7.6+
 const [major, minor] = process.versions.node.split('.').map(parseFloat);
@@ -31,11 +33,9 @@ const server = app.listen(app.get('port'), () => {
 });
 
 if (app.get('env') === 'production') {
-  const fs = require('fs');
-  const https = require('https');
   const options = {
     cert: fs.readFileSync(process.env.SSL_CERT),
     key: fs.readFileSync(process.env.SSL_KEY)
-  }
+  };
   https.createServer(options, app).listen(8443);
 }
