@@ -9,14 +9,20 @@ const passport = require('passport');
 const promisify = require('es6-promisify');
 const flash = require('connect-flash');
 const expressValidator = require('express-validator');
+const Raven = require('raven');
 const routes = require('./routes/index');
 const helpers = require('./helpers');
 const errorHandlers = require('./handlers/errorHandlers');
-const Raven = require('raven');
+const { version } = require('./package.json');
 
 // create our Express app
 const app = express();
-Raven.config('https://2b010463aa1242ca8ecda627539c5338:345ab0fc871a4e05b8c1c279b103376d@sentry.io/170090').install();
+Raven
+  .config('https://2b010463aa1242ca8ecda627539c5338:345ab0fc871a4e05b8c1c279b103376d@sentry.io/170090', {
+    release: version,
+    environment: process.env.NODE_ENV,
+  })
+  .install();
 
 app.use(Raven.requestHandler());
 
