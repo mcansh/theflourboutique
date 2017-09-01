@@ -31,11 +31,3 @@ app.set('port', process.env.PORT || 7777);
 const server = app.listen(app.get('port'), () => {
   console.log(`Express running → PORT ${server.address().port}`);
 });
-
-if (app.get('env') === 'production') {
-  const options = {
-    cert: fs.readFileSync(process.env.SSL_CERT),
-    key: fs.readFileSync(process.env.SSL_KEY)
-  };
-  https.createServer(options, app).listen(8443);
-}
