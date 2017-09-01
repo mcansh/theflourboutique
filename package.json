@@ -1,6 +1,6 @@
 {
   "name": "the-flour-boutique",
-  "version": "0.0.8",
+  "version": "1.0.0",
   "private": true,
   "engines": {
     "node": ">= 7.6.0"
@@ -13,7 +13,10 @@
   },
   "now": {
     "dotenv": "variables.env.now",
-    "alias": ["theflourboutique.com", "www.theflourboutique.com"]
+    "alias": [
+      "theflourboutique.com",
+      "www.theflourboutique.com"
+    ]
   },
   "browserslist": "last 2 versions",
   "dependencies": {
