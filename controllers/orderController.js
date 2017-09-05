@@ -28,7 +28,8 @@ exports.completeOrder = async (req, res) => {
   const order = await Order.findById(req.params.order);
   const operator = !order.done;
   const markedOrder = await Order
-    .findByIdAndUpdate(req.params.order,
+    .findByIdAndUpdate(
+      req.params.order,
       { $set: { done: operator } },
       { new: true }
     );
