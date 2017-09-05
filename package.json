@@ -9,7 +9,8 @@
     "start": "node ./start.js && echo 'PRODUCTION!'",
     "watch": "nodemon ./start.js --ignore public/",
     "dev": "concurrently \"npm run watch\" \"npm run assets\" --names \"💻,📦\" --prefix name",
-    "assets": "webpack -w --display-max-modules 0"
+    "assets": "webpack -w --display-max-modules 0",
+    "test": "eslint controllers handlers models routes views app.js helpers.js start.js"
   },
   "now": {
     "dotenv": "variables.env.now",
