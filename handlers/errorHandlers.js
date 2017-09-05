@@ -7,7 +7,7 @@
   to our express middleware with next()
 */
 
-exports.catchErrors = fn => function (req, res, next) {
+exports.catchErrors = fn => function (req, res, next) { // eslint-disable-line func-names
   return fn(req, res, next).catch(next);
 };
 
@@ -28,7 +28,7 @@ exports.notFound = (req, res, next) => {
   Detect if there are mongodb validation errors that we can nicely show via flash messages
 */
 
-exports.flashValidationErrors = (err, req, res, next) => {
+exports.flashValidationErrors = (err, req, res, next) => { // eslint-disable-line consistent-return
   if (!err.errors) return next(err);
   // validation errors look like
   const errorKeys = Object.keys(err.errors);
@@ -44,7 +44,7 @@ exports.flashValidationErrors = (err, req, res, next) => {
   we can show good info on what happened
 */
 exports.developmentErrors = (err, req, res) => {
-  err.stack = err.stack || '';
+  err.stack = err.stack || ''; // eslint-disable-line no-param-reassign
   const errorDetails = {
     message: err.message,
     status: err.status,
