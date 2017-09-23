@@ -2163,13 +2163,13 @@ express-session@1.15.5:
     uid-safe "~2.1.4"
     utils-merge "1.0.0"
 
-express-validator@4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/express-validator/-/express-validator-4.1.1.tgz#539d49262778eaac170fcd55ef6a3245196cb9d9"
+express-validator@4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/express-validator/-/express-validator-4.2.1.tgz#329014b2e6753bcc07cbd2c9fd3fc8cec08a0e2b"
   dependencies:
     "@types/express" "~4.0.34"
     lodash "^4.16.0"
-    validator "~8.1.0"
+    validator "~8.2.0"
 
 express@4.15.4:
   version "4.15.4"
@@ -3845,9 +3845,9 @@ nodemailer@4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-4.0.1.tgz#b95864b07facee8287e8232effd6f1d56ec75ab2"
 
-nodemon@1.12.1:
-  version "1.12.1"
-  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.12.1.tgz#996a56dc49d9f16bbf1b78a4de08f13634b3878d"
+nodemon@1.12.0:
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.12.0.tgz#e538548a777340a19f855c4f087b7e528aa3feda"
   dependencies:
     chokidar "^1.7.0"
     debug "^2.6.8"
@@ -5840,9 +5840,9 @@ validator@8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/validator/-/validator-8.0.0.tgz#00d6ec230ab5d3353ab1174162a96462b947bdbd"
 
-validator@~8.1.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/validator/-/validator-8.1.0.tgz#89cf6b512ff71eba886afd8d10d47f8dc800eac0"
+validator@~8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/validator/-/validator-8.2.0.tgz#3c1237290e37092355344fef78c231249dab77b9"
 
 vary@~1.1.1:
   version "1.1.1"
