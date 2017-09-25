@@ -1,6 +1,6 @@
 {
   "name": "theflourboutique",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "engines": {
     "node": ">= 7.6.0"
@@ -8,16 +8,15 @@
   "scripts": {
     "start": "node ./start.js",
     "watch": "nodemon ./start.js --ignore public/",
-    "dev": "concurrently \"npm run watch\" \"npm run assets\" --names \"💻,📦\" --prefix name",
+    "dev":
+      "concurrently \"npm run watch\" \"npm run assets\" --names \"💻,📦\" --prefix name",
     "assets": "webpack -w --display-max-modules 0",
-    "test": "eslint controllers handlers models routes views app.js helpers.js start.js"
+    "test":
+      "eslint controllers handlers models routes views app.js helpers.js start.js"
   },
   "now": {
     "dotenv": "variables.env.now",
-    "alias": [
-      "theflourboutique.com",
-      "www.theflourboutique.com"
-    ]
+    "alias": ["theflourboutique.com", "www.theflourboutique.com"]
   },
   "browserslist": "last 2 versions",
   "dependencies": {
@@ -58,7 +57,6 @@
     "autoprefixer": "7.1.2",
     "babel-core": "6.25.0",
     "babel-loader": "7.1.1",
-    "babel-preset-env": "^1.6.0",
     "concurrently": "3.5.0",
     "css-loader": "0.28.4",
     "eslint": "4.6.1",
