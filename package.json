@@ -1,6 +1,6 @@
 {
   "name": "theflourboutique",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "engines": {
     "node": ">= 7.6.0"
@@ -8,16 +8,15 @@
   "scripts": {
     "start": "node ./start.js",
     "watch": "nodemon ./start.js --ignore public/",
-    "dev": "concurrently \"npm run watch\" \"npm run assets\" --names \"💻,📦\" --prefix name",
+    "dev":
+      "concurrently \"npm run watch\" \"npm run assets\" --names \"💻,📦\" --prefix name",
     "assets": "webpack -w --display-max-modules 0",
-    "test": "eslint controllers handlers models routes views app.js helpers.js start.js"
+    "test":
+      "eslint controllers handlers models routes views app.js helpers.js start.js"
   },
   "now": {
     "dotenv": "variables.env.now",
-    "alias": [
-      "theflourboutique.com",
-      "www.theflourboutique.com"
-    ]
+    "alias": ["theflourboutique.com", "www.theflourboutique.com"]
   },
   "browserslist": "last 2 versions",
   "dependencies": {
@@ -30,7 +29,7 @@
     "dotenv": "4.0.0",
     "es6-promisify": "5.0.0",
     "express": "5.0.0-alpha.6",
-    "express-session": "1.15.5",
+    "express-session": "1.15.6",
     "express-validator": "4.2.1",
     "faker": "4.1.0",
     "forever": "0.15.3",
@@ -40,30 +39,29 @@
     "juice": "4.1.0",
     "md5": "2.2.1",
     "moment": "2.18.1",
-    "mongoose": "4.11.13",
+    "mongoose": "4.11.14",
     "mongoose-mongodb-errors": "0.0.2",
     "multer": "1.3.0",
-    "nodemailer": "4.0.1",
+    "nodemailer": "4.1.1",
     "passport": "0.4.0",
     "passport-local": "1.0.0",
     "passport-local-mongoose": "4.2.1",
     "pug": "2.0.0-rc.3",
-    "raven": "2.1.1",
+    "raven": "2.2.0",
     "slugs": "0.1.3",
     "uuid": "3.1.0",
-    "validator": "8.0.0",
+    "validator": "9.0.0",
     "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
     "autoprefixer": "7.1.2",
     "babel-core": "6.25.0",
     "babel-loader": "7.1.1",
-    "babel-preset-es2015": "6.24.1",
     "concurrently": "3.5.0",
     "css-loader": "0.28.4",
-    "eslint": "4.6.1",
+    "eslint": "4.8.0",
     "eslint-config-airbnb": "15.1.0",
-    "eslint-config-airbnb-base": "12.0.0",
+    "eslint-config-airbnb-base": "12.0.1",
     "eslint-plugin-import": "2.7.0",
     "extract-text-webpack-plugin": "3.0.0",
     "node-sass": "4.5.3",
