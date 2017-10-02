@@ -1827,15 +1827,21 @@ exports.default = autocomplete;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 function setMinDate(input) {
   if (!input) return; // skip this fn from running if there is not input on the page
-  var currentDate = new Date(); //
-  // const threeWeeks = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 21).toISOString().substr(0, 10).split('-');
-  // input.min = `${threeWeeks[0]}-${threeWeeks[1]}-${threeWeeks[2]}`;
-  // input.value = `${threeWeeks[1]}-${threeWeeks[2]}-${threeWeeks[0]}`;
-  var firstOrder = new Date('2017', '08', '05').toISOString().substr(0, 10).split('-');
-  input.min = firstOrder[0] + '-' + firstOrder[1] + '-' + firstOrder[2];
-  input.value = firstOrder[0] + '-' + firstOrder[1] + '-' + firstOrder[2];
+  var currentDate = new Date();
+  var threeWeeks = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 21).toISOString().substr(0, 10).split('-');
+
+  var _threeWeeks = _slicedToArray(threeWeeks, 3),
+      year = _threeWeeks[0],
+      month = _threeWeeks[1],
+      day = _threeWeeks[2];
+
+  input.min = year + '-' + month + '-' + day; // eslint-disable-line no-param-reassign
+  input.value = year + '-' + month + '-' + day; // eslint-disable-line no-param-reassign
 }
 
 exports.default = setMinDate;
