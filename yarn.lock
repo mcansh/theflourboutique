@@ -2042,7 +2042,7 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-config-airbnb-base@^12.1.0:
+eslint-config-airbnb-base@12.1.0, eslint-config-airbnb-base@^12.1.0:
   version "12.1.0"
   resolved "https://registry.yarnpkg.com/eslint-config-airbnb-base/-/eslint-config-airbnb-base-12.1.0.tgz#386441e54a12ccd957b0a92564a4bafebd747944"
   dependencies:
@@ -3839,9 +3839,9 @@ mongoose-mongodb-errors@0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/mongoose-mongodb-errors/-/mongoose-mongodb-errors-0.0.2.tgz#7feacb8c901b5f899c616652337b2f499717291c"
 
-mongoose@4.12.3:
-  version "4.12.3"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-4.12.3.tgz#7099bf8ce4945150001f4c2462e56c9e958ddcb9"
+mongoose@4.12.4:
+  version "4.12.4"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-4.12.4.tgz#502a2c037376a6c6356eee89128e75653612127c"
   dependencies:
     async "2.1.4"
     bson "~1.0.4"
