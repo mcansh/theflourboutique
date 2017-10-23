@@ -3325,9 +3325,9 @@ jstransformer@1.0.0:
     is-promise "^2.0.0"
     promise "^7.0.1"
 
-juice@4.2.1:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/juice/-/juice-4.2.1.tgz#32f58ea4d7e9d2329ba5e26708b4c854a8c1c2f1"
+juice@4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/juice/-/juice-4.2.2.tgz#da4b7ffee11ffa5fde97b973edb39e99085307a8"
   dependencies:
     cheerio "^0.22.0"
     commander "2.9.0"
