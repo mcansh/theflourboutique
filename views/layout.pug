@@ -1,5 +1,5 @@
 doctype html
-html
+html(lang="en")
   head
     title= `${title} | ${h.siteName}`
     link(rel='stylesheet', href='/dist/style.css')
@@ -18,7 +18,7 @@ html
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
       })(window,document,'script','dataLayer','GTM-PX2HWRB');
-    //  End Google Tag Manager 
+    //  End Google Tag Manager
 
   body
     block back-to-home
@@ -32,10 +32,10 @@ html
                 .flash(class=`flash--${category}`)
                   p.flash__text!= message
                   button.flash__remove(onClick="this.parentElement.remove()") &times;
-    
+
     .wrapper
       block content
-      
+
     footer
       a(href="/prices") Price Guide
       p &copy; <span></span> The Flour Boutique
