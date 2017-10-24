@@ -6,6 +6,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 /*
   webpack sees every file as a module.
   How to handle those files is up to loaders.
@@ -45,7 +46,11 @@ const styles = {
   // remember above we used an object for each loader instead of just a string?
   // We don't just pass an array of loaders,
   // we run them through the extract plugin so they can be outputted to their own .css file
-  use: ExtractTextPlugin.extract(['css-loader?sourceMap', postcss, 'sass-loader?sourceMap']),
+  use: ExtractTextPlugin.extract([
+    'css-loader?sourceMap',
+    postcss,
+    'sass-loader?sourceMap',
+  ]),
 };
 
 // We can also use plugins - this one will compress the crap out of our JS
@@ -83,6 +88,11 @@ const config = {
     uglify,
     // here is where we tell it to output our css to a separate file
     new ExtractTextPlugin('style.css'),
+    new OptimizeCssAssetsPlugin({
+      cssProcessor: require('cssnano'),
+      cssProcessorOptions: { discardComments: { removeAll: true } },
+      canPrint: true,
+    }),
   ],
 };
 // webpack is cranky about some packages using a soon to be deprecated API. shhhhhhh
