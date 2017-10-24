@@ -17,12 +17,10 @@ const { version } = require('./package.json');
 
 // create our Express app
 const app = express();
-Raven
-  .config('https://2b010463aa1242ca8ecda627539c5338:345ab0fc871a4e05b8c1c279b103376d@sentry.io/170090', {
-    release: version,
-    environment: process.env.NODE_ENV,
-  })
-  .install();
+Raven.config(process.env.SENTRY, {
+  release: version,
+  environment: process.env.NODE_ENV,
+}).install();
 
 app.use(Raven.requestHandler());
 
@@ -51,8 +49,8 @@ app.use(session({
   key: process.env.KEY,
   resave: false,
   saveUninitialized: false,
-  store: new MongoStore({ mongooseConnection: mongoose.connection })
-}));
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+}),);
 
 // Passport JS is what we use to handle our logins
 app.use(passport.initialize());
