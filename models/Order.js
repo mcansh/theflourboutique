@@ -7,49 +7,49 @@ const validator = require('validator');
 const orderSchema = new Schema({
   done: {
     type: Boolean,
-    default: false
+    default: false,
   },
   email: {
     type: String,
     lowercase: true,
     trim: true,
     validate: [validator.isEmail, 'Invalid Email Address'],
-    required: 'Please supply an email address'
+    required: 'Please supply an email address',
   },
   name: {
     type: String,
     required: 'Please supply a name',
-    trim: true
+    trim: true,
   },
   city: {
     type: String,
     required: 'Please supply a city',
-    trim: true
+    trim: true,
   },
   date: {
     type: Date,
     trim: true,
-    required: 'Please supply a date for your event'
+    required: 'Please supply a date for your event',
   },
   theme: {
     type: String,
     required: 'Please supply a theme',
-    trim: true
+    trim: true,
   },
   quantity: {
     type: String,
     trim: true,
-    required: 'Please supply a quantity'
+    required: 'Please supply a quantity',
   },
   flavor: {
     type: String,
     trim: true,
-    required: 'Please supply a flavor'
+    required: 'Please supply a flavor',
   },
   comments: {
     type: String,
-    trim: true
-  }
+    trim: true,
+  },
 });
 
 module.exports = mongoose.model('Order', orderSchema);
