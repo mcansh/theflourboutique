@@ -5,10 +5,10 @@ cache:
   directories:
     - node_modules
 before_install:
+  - yarn global add now
   - now -t ${NOW_TOKEN}
   - now -t ${NOW_TOKEN} alias staging.theflourboutique.com
   - yarn global add greenkeeper-lockfile@1
-  - yarn global add now
   - yarn add -D https://github.com/ebidel/lighthouse-ci
 before_script: greenkeeper-lockfile-update
 after_script:
