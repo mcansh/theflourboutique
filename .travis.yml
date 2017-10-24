@@ -6,11 +6,12 @@ cache:
     - node_modules
 before_install:
   - yarn global add now
-  - now -t ${NOW_TOKEN}
-  - now -t ${NOW_TOKEN} alias staging.theflourboutique.com
   - yarn global add greenkeeper-lockfile@1
   - yarn add -D https://github.com/ebidel/lighthouse-ci
-before_script: greenkeeper-lockfile-update
+before_script:
+  - greenkeeper-lockfile-update
+  - now -t ${NOW_TOKEN}
+  - now -t ${NOW_TOKEN} alias staging.theflourboutique.com
 after_script:
   - greenkeeper-lockfile-upload
   - node node_modules/lighthouse-ci/runlighthouse.js https://staging.theflourboutique.com
