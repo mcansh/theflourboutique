@@ -10,8 +10,7 @@
     "dev": "next",
     "build": "next build",
     "dev:server": "nodemon ./server.js",
-    "test":
-      "eslint controllers handlers models routes views app.js helpers.js start.js"
+    "test": "eslint ./"
   },
   "now": {
     "dotenv": "variables.env.now",
