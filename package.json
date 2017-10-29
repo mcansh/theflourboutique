@@ -6,20 +6,17 @@
     "node": ">= 7.6.0"
   },
   "scripts": {
-    "start": "node ./start.js",
-    "watch": "nodemon ./start.js --ignore public/",
-    "dev": "concurrently \"npm run watch\" \"npm run assets\" --names \"💻,📦\" --prefix name",
-    "assets": "webpack -w --display-max-modules 0",
+    "start": "node ./server.js",
+    "watch": "nodemon ./server.js",
+    "dev": "concurrently \"npm run watch\" --names \"💻,📦\" --prefix name",
     "test": "eslint controllers handlers models routes views app.js helpers.js start.js"
   },
   "now": {
     "dotenv": "variables.env.now",
     "alias": [
-      "theflourboutique.com",
-      "www.theflourboutique.com"
+      "theflourboutique.com"
     ]
   },
-  "browserslist": "last 2 versions",
   "dependencies": {
     "axios": "0.17.0",
     "body-parser": "1.18.2",
@@ -43,12 +40,16 @@
     "mongoose": "4.12.4",
     "mongoose-mongodb-errors": "0.0.2",
     "multer": "1.3.0",
+    "next": "^4.1.4",
     "nodemailer": "4.3.1",
     "passport": "0.4.0",
     "passport-local": "1.0.0",
     "passport-local-mongoose": "4.4.0",
+    "prop-types": "^15.6.0",
     "pug": "2.0.0-rc.4",
     "raven": "2.2.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "slugs": "0.1.3",
     "uuid": "3.1.0",
     "validator": "9.1.1",
@@ -63,11 +64,13 @@
     "concurrently": "3.5.0",
     "css-loader": "0.28.7",
     "cssnano": "^3.10.0",
-    "eslint": "4.10.0",
-    "eslint-config-airbnb": "16.1.0",
+    "eslint": "^4.10.0",
+    "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.6.0",
-    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-prettier": "^2.3.1",
+    "eslint-plugin-react": "^7.4.0",
     "extract-text-webpack-plugin": "3.0.2",
     "node-sass": "4.5.3",
     "nodemon": "1.12.1",
