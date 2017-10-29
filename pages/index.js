@@ -1,9 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Huge from '../components/Huge';
+import { Huge, H2 } from '../components/Type';
+import Logo from '../components/Logo';
+import { Button } from '../components/Button';
+import Page from '../components/Page';
 
-const Index = () => <Huge text="The Flour Boutique" />;
-
-Index.propTypes = {};
+const Index = () => (
+  <Page>
+    <Logo style={{ margin: '20px' }} />
+    <Huge text="The Flour Boutique" />
+    <H2 text="...where a little flour brings a bit of sunshine" />
+    <Button
+      href="https://facebook.com/theflourboutique"
+      text="Check us out on Facebook!"
+    />
+  </Page>
+);
 
 export default Index;
