@@ -15,6 +15,8 @@ const FormField = ({ children }) => (
   </fieldset>
 );
 
-FormField.propTypes = {};
+FormField.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default FormField;

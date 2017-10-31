@@ -3,11 +3,16 @@ import PropTypes from 'prop-types';
 import { colors } from '../../theme';
 import FormField from './FormField';
 
-const Select = ({ options }) => (
+const Select = ({ options, onChange, name }) => (
   <FormField>
-    <select>
+    <select onChange={onChange} name={name}>
       {options.map(opt => (
-        <option key={opt.text} disabled={opt.disabled} selected={opt.selected}>
+        <option
+          key={opt.text}
+          disabled={opt.disabled}
+          selected={opt.selected}
+          value={opt.text}
+        >
           {opt.text}
         </option>
       ))}
@@ -30,11 +35,15 @@ const Select = ({ options }) => (
 );
 
 Select.propTypes = {
-  options: PropTypes.shape({
-    text: PropTypes.string,
-    disabled: PropTypes.bool,
-    selected: PropTypes.bool,
-  }).isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      disabled: PropTypes.bool,
+      selected: PropTypes.bool,
+    }),
+  ).isRequired,
+  onChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default Select;

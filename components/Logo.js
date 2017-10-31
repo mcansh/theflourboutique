@@ -83,7 +83,9 @@ Logo.defaultProps = {
 };
 
 Logo.propTypes = {
-  style: PropTypes.object,
+  style: PropTypes.shape({
+    margin: PropTypes.string,
+  }),
   size: PropTypes.string,
 };
 

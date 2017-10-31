@@ -41,6 +41,22 @@ const Input = ({ name, placeholder, onChange, type, value, required, min }) => {
   );
 };
 
-Input.propTypes = {};
+Input.defaultProps = {
+  value: undefined,
+  required: false,
+  min: null,
+  type: 'text',
+  placeholder: '',
+};
+
+Input.propTypes = {
+  name: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  type: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  required: PropTypes.bool,
+  min: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+};
 
 export default Input;
