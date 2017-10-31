@@ -1,18 +1,26 @@
-const express = require('express');
+const { createServer } = require('http');
+const { parse } = require('url');
 const next = require('next');
+const { join } = require('path');
 
-const port = process.env.PORT || 7777;
 const dev = process.env.NODE_ENV !== 'production';
-const app = next({ dev });
+const app = next({ dir: '.', dev });
+const PORT = process.env.PORT || 3000;
 const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
-  const server = express();
+  createServer((req, res) => {
+    const parsedUrl = parse(req.url, true);
+    const { pathname } = parsedUrl;
 
-  server.get('*', (req, res) => handle(req, res));
-
-  server.listen(port, err => {
+    if (/^\/sw.js\/?$/.test(pathname)) {
+      const filePath = join(__dirname, '.next', pathname);
+      app.serveStatic(req, res, filePath);
+    } else {
+      handle(req, res, parsedUrl);
+    }
+  }).listen(PORT, err => {
     if (err) throw err;
-    console.log(`> Ready on http://localhost:${port}`); // eslint-disable-line no-console
+    console.log(`> Ready on http://localhost:${PORT}`); // eslint-disable-line no-console
   });
 });
