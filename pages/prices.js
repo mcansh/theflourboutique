@@ -1,13 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Page from '../components/Page';
-import Back2Home from '../components/Back2Home';
 import { Huge } from '../components/Type';
 
-const Prices = () => (
-  <Page>
-    <Back2Home />
+const Prices = ({ url: { pathname } }) => (
+  <Page pathname={pathname}>
     <Huge text="The Flour Boutique Price Guide" />
   </Page>
 );
+
+Prices.propTypes = {
+  url: PropTypes.shape({
+    pathname: PropTypes.string,
+  }).isRequired,
+};
 
 export default Prices;
