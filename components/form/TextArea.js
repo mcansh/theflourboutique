@@ -14,6 +14,7 @@ const TextArea = ({ name, onChange, margin, color }) => {
       <textarea id={lowercaseName} name={name} onChange={onChange} />
       <style jsx>{`
         textarea {
+          resize: vertical;
           max-width: 100%;
           width: 100%;
           appearance: none;

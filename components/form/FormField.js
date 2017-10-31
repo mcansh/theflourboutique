@@ -6,6 +6,7 @@ const FormField = ({ children }) => (
     {children}
     <style jsx>{`
       fieldset {
+        width: 100%;
         margin: 1rem 0;
         border: 0;
         padding: 0;

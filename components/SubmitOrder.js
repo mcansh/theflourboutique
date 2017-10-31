@@ -144,8 +144,8 @@ class SubmitOrder extends Component {
         </form>
         <style jsx>{`
           form {
-            max-width: 400px;
-            width: 90%;
+            max-width: 90%;
+            width: 400px;
             margin: 0 auto;
           }
         `}</style>
