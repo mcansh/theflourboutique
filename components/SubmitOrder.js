@@ -9,15 +9,16 @@ import Select from './form/Select';
 import { Button } from './Button';
 
 const now = new Date();
-const earliestOrderEpoch = now.setDate(now.getDate() + 21);
-const earliestOrder = new Date(earliestOrderEpoch).toISOString();
+const earliestOrderUnix = now.setDate(now.getDate() + 21);
+
+const convertToUTCEpoch = d => new Date(new Date(d).toUTCString()).getTime();
 
 class SubmitOrder extends Component {
   state = {
     name: undefined,
     email: undefined,
     city: undefined,
-    date: earliestOrder,
+    date: earliestOrderUnix,
     theme: undefined,
     quantity: 12,
     flavor: undefined,
@@ -26,7 +27,8 @@ class SubmitOrder extends Component {
 
   handleOnChange = e => {
     const { name, value } = e.target;
-    this.setState({ [name]: value });
+    const lowercaseName = name.toLowerCase();
+    this.setState({ [lowercaseName]: value });
   };
 
   handleSubmit = async e => {
@@ -44,8 +46,16 @@ class SubmitOrder extends Component {
     } = this.state;
 
     const { createOrder } = this.props;
-
-    createOrder(name, email, city, date, theme, quantity, flavor, comments);
+    createOrder(
+      name,
+      email,
+      city,
+      convertToUTCEpoch(date),
+      theme,
+      parseFloat(quantity),
+      flavor,
+      comments,
+    );
   };
 
   render() {
@@ -61,7 +71,6 @@ class SubmitOrder extends Component {
             onChange={this.handleOnChange}
             value={this.state.name}
             placeholder="Name"
-            required
           />
           <Input
             name="Email"
@@ -69,7 +78,6 @@ class SubmitOrder extends Component {
             onChange={this.handleOnChange}
             value={this.state.email}
             placeholder="Email"
-            required
           />
           <Input
             name="City"
@@ -77,15 +85,13 @@ class SubmitOrder extends Component {
             onChange={this.handleOnChange}
             value={this.state.city}
             placeholder="City"
-            required
           />
           <Input
             name="Date"
             type="date"
             onChange={this.handleOnChange}
             value={this.state.date}
-            min={earliestOrder}
-            required
+            min={undefined}
           />
           <Input
             name="Theme"
@@ -93,7 +99,6 @@ class SubmitOrder extends Component {
             onChange={this.handleOnChange}
             value={this.state.theme}
             placeholder="Ex: wedding shower, baby shower"
-            required
           />
           <Input
             name="Quantity"
@@ -102,9 +107,10 @@ class SubmitOrder extends Component {
             value={this.state.quantity}
             placeholder="Quantity"
             min={12}
-            required
           />
           <Select
+            onChange={this.handleOnChange}
+            name="flavor"
             options={[
               { text: 'Flavor of Cookies', disabled: true, selected: true },
               { text: 'Vanilla sugar cookie with almond royal icing' },
@@ -137,7 +143,7 @@ const createOrder = gql`
     $name: String!
     $email: String!
     $city: String!
-    $date: DateTime!
+    $date: Float!
     $theme: String!
     $quantity: Int!
     $flavor: String!
