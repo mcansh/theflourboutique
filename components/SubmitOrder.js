@@ -3,6 +3,7 @@ import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import Input from './form/Input';
 import Select from './form/Select';
+import TextArea from './form/TextArea';
 import { Button } from './Button';
 
 const now = new Date();
@@ -118,6 +119,7 @@ class SubmitOrder extends Component {
               { text: 'Mint Chocolate Chip cookie with mint royal icing' },
             ]}
           />
+          <TextArea name="Comments" onChange={this.handleOnChange} />
           <Button basic text="Submit" />
         </form>
         <style jsx>{`
