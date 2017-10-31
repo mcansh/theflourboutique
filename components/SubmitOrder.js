@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
-import Logo from './Logo';
-import { Huge } from './Type';
-import Back2Home from '../components/Back2Home';
 import Input from './form/Input';
 import Select from './form/Select';
 import { Button } from './Button';
@@ -61,9 +58,6 @@ class SubmitOrder extends Component {
   render() {
     return (
       <div>
-        <Back2Home />
-        <Logo />
-        <Huge text="Cookie Order Quote" />
         <form onSubmit={this.handleSubmit}>
           <Input
             name="Name"
