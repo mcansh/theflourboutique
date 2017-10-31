@@ -2,12 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { colors } from '../../theme';
 import FormField from './FormField';
+import Label from './Label';
 
 const Input = ({ name, placeholder, onChange, type, value, required, min }) => {
   const lowercaseName = name.toLowerCase();
   return (
     <FormField>
-      <label htmlFor={lowercaseName}>{name}</label>
+      <Label margin="0 0 1rem 0" htmlFor={lowercaseName}>
+        {name}
+      </Label>
       <input
         id={lowercaseName}
         name={name}
@@ -19,11 +22,6 @@ const Input = ({ name, placeholder, onChange, type, value, required, min }) => {
         min={min}
       />
       <style jsx>{`
-        label {
-          display: block;
-          text-align: left;
-        }
-
         input {
           max-width: 100%;
           width: 100%;

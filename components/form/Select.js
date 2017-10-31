@@ -2,10 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { colors } from '../../theme';
 import FormField from './FormField';
+import Label from './Label';
 
 const Select = ({ options, onChange, name }) => (
   <FormField>
-    <select onChange={onChange} name={name}>
+    <Label margin="0 0 1rem 0" htmlFor={name}>
+      {name}
+    </Label>
+    <select id={name} onChange={onChange} name={name}>
       {options.map(opt => (
         <option
           key={opt.text}
