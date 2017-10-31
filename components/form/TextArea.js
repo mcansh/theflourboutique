@@ -4,11 +4,11 @@ import FormField from './FormField';
 import Label from './Label';
 import { colors } from '../../theme';
 
-const TextArea = ({ name, onChange }) => {
+const TextArea = ({ name, onChange, margin, color }) => {
   const lowercaseName = name.toLowerCase();
   return (
     <FormField>
-      <Label margin="0 0 1rem 0" htmlFor={lowercaseName}>
+      <Label margin={margin} htmlFor={lowercaseName} color={color}>
         {name}
       </Label>
       <textarea id={lowercaseName} name={name} onChange={onChange} />
@@ -30,9 +30,16 @@ const TextArea = ({ name, onChange }) => {
   );
 };
 
+TextArea.defaultProps = {
+  margin: 0,
+  color: 'black',
+};
+
 TextArea.propTypes = {
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  margin: PropTypes.string,
+  color: PropTypes.string,
 };
 
 export default TextArea;

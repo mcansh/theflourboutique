@@ -4,9 +4,9 @@ import { colors } from '../../theme';
 import FormField from './FormField';
 import Label from './Label';
 
-const Select = ({ options, onChange, name, defaultValue }) => (
+const Select = ({ options, onChange, name, defaultValue, margin, color }) => (
   <FormField>
-    <Label margin="0 0 1rem 0" htmlFor={name} color="rgba(0, 0, 0, 0.4)">
+    <Label margin={margin} htmlFor={name} color={color}>
       {name}
     </Label>
     <select id={name} onChange={onChange} name={name} value={defaultValue}>
@@ -35,6 +35,8 @@ const Select = ({ options, onChange, name, defaultValue }) => (
 
 Select.defaultProps = {
   defaultValue: null,
+  margin: 0,
+  color: 'black',
 };
 
 Select.propTypes = {
@@ -48,6 +50,8 @@ Select.propTypes = {
   onChange: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
   defaultValue: PropTypes.string,
+  margin: PropTypes.string,
+  color: PropTypes.string,
 };
 
 export default Select;

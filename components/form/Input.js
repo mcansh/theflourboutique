@@ -4,11 +4,21 @@ import { colors } from '../../theme';
 import FormField from './FormField';
 import Label from './Label';
 
-const Input = ({ name, placeholder, onChange, type, value, required, min }) => {
+const Input = ({
+  name,
+  placeholder,
+  onChange,
+  type,
+  value,
+  required,
+  min,
+  margin,
+  color,
+}) => {
   const lowercaseName = name.toLowerCase();
   return (
     <FormField>
-      <Label margin="0 0 1rem 0" htmlFor={lowercaseName}>
+      <Label margin={margin} color={color} htmlFor={lowercaseName}>
         {name}
       </Label>
       <input
@@ -47,6 +57,11 @@ Input.defaultProps = {
   placeholder: '',
 };
 
+Input.defaultProps = {
+  margin: 0,
+  color: 'black',
+};
+
 Input.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
@@ -55,6 +70,8 @@ Input.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   required: PropTypes.bool,
   min: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  margin: PropTypes.string,
+  color: PropTypes.string,
 };
 
 export default Input;

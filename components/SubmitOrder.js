@@ -66,6 +66,8 @@ class SubmitOrder extends Component {
             onChange={this.handleOnChange}
             value={this.state.name}
             placeholder="Name"
+            margin="0 0 1rem 0"
+            color="rgba(0, 0, 0, 0.4)"
           />
           <Input
             name="Email"
@@ -73,6 +75,8 @@ class SubmitOrder extends Component {
             onChange={this.handleOnChange}
             value={this.state.email}
             placeholder="Email"
+            margin="0 0 1rem 0"
+            color="rgba(0, 0, 0, 0.4)"
           />
           <Input
             name="City"
@@ -80,6 +84,8 @@ class SubmitOrder extends Component {
             onChange={this.handleOnChange}
             value={this.state.city}
             placeholder="City"
+            margin="0 0 1rem 0"
+            color="rgba(0, 0, 0, 0.4)"
           />
           <Input
             name="Date"
@@ -87,6 +93,8 @@ class SubmitOrder extends Component {
             onChange={this.handleOnChange}
             value={this.state.date}
             min={undefined}
+            margin="0 0 1rem 0"
+            color="rgba(0, 0, 0, 0.4)"
           />
           <Input
             name="Theme"
@@ -94,6 +102,8 @@ class SubmitOrder extends Component {
             onChange={this.handleOnChange}
             value={this.state.theme}
             placeholder="Ex: wedding shower, baby shower"
+            margin="0 0 1rem 0"
+            color="rgba(0, 0, 0, 0.4)"
           />
           <Input
             name="Quantity"
@@ -102,6 +112,8 @@ class SubmitOrder extends Component {
             value={this.state.quantity}
             placeholder="Quantity"
             min={12}
+            margin="0 0 1rem 0"
+            color="rgba(0, 0, 0, 0.4)"
           />
           <Select
             onChange={this.handleOnChange}
@@ -119,8 +131,15 @@ class SubmitOrder extends Component {
               },
               { text: 'Mint Chocolate Chip cookie with mint royal icing' },
             ]}
+            margin="0 0 1rem 0"
+            color="rgba(0, 0, 0, 0.4)"
           />
-          <TextArea name="Comments" onChange={this.handleOnChange} />
+          <TextArea
+            name="Comments"
+            onChange={this.handleOnChange}
+            margin="0 0 1rem 0"
+            color="rgba(0, 0, 0, 0.4)"
+          />
           <Button basic text="Submit" />
         </form>
         <style jsx>{`
