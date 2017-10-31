@@ -4,19 +4,14 @@ import { colors } from '../../theme';
 import FormField from './FormField';
 import Label from './Label';
 
-const Select = ({ options, onChange, name }) => (
+const Select = ({ options, onChange, name, default }) => (
   <FormField>
     <Label margin="0 0 1rem 0" htmlFor={name}>
       {name}
     </Label>
-    <select id={name} onChange={onChange} name={name}>
-      {options.map(opt => (
-        <option
-          key={opt.text}
-          disabled={opt.disabled}
-          selected={opt.selected}
-          value={opt.text}
-        >
+    <select id={name} onChange={onChange} name={name} value={default}>
+      {options.map(({ selected, text, disabled }) => (
+        <option key={text} disabled={disabled} selected={selected} value={text}>
           {opt.text}
         </option>
       ))}
@@ -38,6 +33,10 @@ const Select = ({ options, onChange, name }) => (
   </FormField>
 );
 
+Select.defaultProps = {
+  default: null,
+};
+
 Select.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
@@ -48,6 +47,7 @@ Select.propTypes = {
   ).isRequired,
   onChange: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
+  default: PropTypes.string,
 };
 
 export default Select;

@@ -106,8 +106,9 @@ class SubmitOrder extends Component {
           <Select
             onChange={this.handleOnChange}
             name="Flavor"
+            default="Flavor of Cookies"
             options={[
-              { text: 'Flavor of Cookies', disabled: true, selected: true },
+              { text: 'Flavor of Cookies', selected: true, disabled: true },
               { text: 'Vanilla sugar cookie with almond royal icing' },
               { text: 'Chocolate cookie with vanilla royal icing' },
               { text: 'Lemon poppyseed sugar cookie with lemon royal icing' },
