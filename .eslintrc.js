@@ -11,5 +11,6 @@ module.exports = {
     'react/jsx-closing-tag-location': 0,
     'react/jsx-curly-brace-presence': 0,
     'jsx-a11y/anchor-is-valid': 0,
+    'jsx-a11y/label-has-for': 0,
   },
 };
