@@ -6,6 +6,7 @@ import Router from 'next/router';
 import PropTypes from 'prop-types';
 import Footer from '../components/Footer';
 import { version } from '../package.json';
+import Back2Home from '../components/Back2Home';
 
 import { colors } from '../theme';
 
@@ -30,7 +31,7 @@ class Page extends React.Component {
     }
   }
   render() {
-    const { title, children } = this.props;
+    const { title, children, pathname } = this.props;
     return (
       <div>
         <Head>
@@ -40,6 +41,7 @@ class Page extends React.Component {
             rel="stylesheet"
           />
         </Head>
+        {pathname && pathname !== '/' && <Back2Home />}
         <div className="wrapper">{children}</div>
         <Footer />
         <style jsx global>{`
@@ -60,6 +62,11 @@ class Page extends React.Component {
             text-align: center;
             line-height: 1.15;
             text-size-adjust: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-weight: 300;
           }
 
           #nprogress {
@@ -114,6 +121,7 @@ Page.defaultProps = {
 Page.propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string,
+  pathname: PropTypes.string.isRequired,
 };
 
 export default Page;
