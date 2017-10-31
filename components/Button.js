@@ -77,8 +77,12 @@ const Button = props => {
   );
 };
 
+Button.defaultProps = {
+  href: null,
+};
+
 Button.propTypes = {
-  href: PropTypes.string.isRequired,
+  href: PropTypes.string,
   text: PropTypes.string.isRequired,
 };
 
