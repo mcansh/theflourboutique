@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import Footer from '../components/Footer';
 import { version } from '../package.json';
 import Back2Home from '../components/Back2Home';
+import { initGA, logPageView } from '../lib/analytics';
 
 import { colors } from '../theme';
 
@@ -17,11 +18,18 @@ Router.onRouteChangeError = () => NProgress.done();
 class Page extends React.Component {
   componentDidMount() {
     if (process.env.NODE_ENV === 'production') {
+      // Google Analytics
+      if (!window.GA_INITIALIZED) {
+        initGA();
+        window.GA_INITIALIZED = true;
+      }
+      logPageView();
+      // Sentry Error Logging
       Raven.config(process.env.SENTRY, {
         release: version,
         environment: process.env.NODE_ENV,
       }).install();
-
+      // Service Worker
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker
           .register('/sw.js')
