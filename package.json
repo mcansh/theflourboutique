@@ -8,16 +8,17 @@
   "scripts": {
     "start": "node ./start.js",
     "watch": "nodemon ./start.js --ignore public/",
-    "dev": "concurrently \"npm run watch\" \"npm run assets\" --names \"💻,📦\" --prefix name",
+    "dev":
+      "concurrently \"npm run watch\" \"npm run assets\" --names \"💻,📦\" --prefix name",
     "assets": "webpack -w --display-max-modules 0",
-    "test": "eslint controllers handlers models routes views app.js helpers.js start.js"
+    "test":
+      "eslint controllers handlers models routes views app.js helpers.js start.js",
+    "deploy": "now -e NODE_ENV=production --token $NOW_TOKEN --npm",
+    "alias": "now alias --token=$NOW_TOKEN"
   },
   "now": {
     "dotenv": "variables.env.now",
-    "alias": [
-      "theflourboutique.com",
-      "www.theflourboutique.com"
-    ]
+    "alias": ["theflourboutique.com", "www.theflourboutique.com"]
   },
   "browserslist": "last 2 versions",
   "dependencies": {
