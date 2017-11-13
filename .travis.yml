@@ -4,6 +4,13 @@ node_js:
 cache:
   directories:
     - node_modules
-before_install: yarn global add greenkeeper-lockfile@1
-before_script: greenkeeper-lockfile-update
-after_script: greenkeeper-lockfile-upload
+before_install:
+  - yarn global add greenkeeper-lockfile@1
+  - yarn add -D https://github.com/ebidel/lighthouse-ci
+  - yarn add -D now-travis
+before_script:
+  - greenkeeper-lockfile-update
+after_script:
+  - greenkeeper-lockfile-upload
+  - NOW_ALIAS=staging.theflourboutique.com node_modules/.bin/now-travis
+  - node node_modules/lighthouse-ci/runlighthouse.js https://staging.theflourboutique.com
