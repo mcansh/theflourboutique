@@ -5,7 +5,7 @@ import Page from '../components/Page';
 import AllOrders from '../components/AllOrders';
 
 const Orders = withData(({ url }) => (
-  <Page pathname={url.pathname}>
+  <Page pathname={url.pathname} title="All Orders">
     <AllOrders />
   </Page>
 ));

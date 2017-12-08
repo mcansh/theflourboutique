@@ -43,7 +43,9 @@ class Page extends React.Component {
     return (
       <div>
         <Head>
-          <title>{title}</title>
+          <title>
+            {title ? `${title} - The Flour Boutique` : 'The Flour Boutique'}
+          </title>
           <link
             href="https://fonts.googleapis.com/css?family=Open+Sans:300,400"
             rel="stylesheet"
@@ -123,7 +125,7 @@ class Page extends React.Component {
 }
 
 Page.defaultProps = {
-  title: 'The Flour Boutique',
+  title: null,
 };
 
 Page.propTypes = {

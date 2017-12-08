@@ -7,7 +7,7 @@ import Logo from '../components/Logo';
 import { Huge } from '../components/Type';
 
 const Order = withData(({ url }) => (
-  <Page pathname={url.pathname}>
+  <Page pathname={url.pathname} title="Order">
     <Logo style={{ marginTop: '6rem' }} />
     <Huge text="Cookie Order Quote" />
     <SubmitOrder />

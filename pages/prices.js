@@ -4,7 +4,7 @@ import Page from '../components/Page';
 import { Huge } from '../components/Type';
 
 const Prices = ({ url: { pathname } }) => (
-  <Page pathname={pathname}>
+  <Page pathname={pathname} title="Price Guide">
     <Huge text="The Flour Boutique Price Guide" />
   </Page>
 );
