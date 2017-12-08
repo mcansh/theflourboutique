@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
+import addDays from 'date-fns/add_days';
+import format from 'date-fns/format';
 import Input from './form/Input';
 import Select from './form/Select';
 import TextArea from './form/TextArea';
 import { Button } from './Button';
 
-const now = new Date();
-const earliestOrderUnix = now.setDate(now.getDate() + 21);
+const earliestOrderDate = () => {
+  const now = new Date();
+  const threeWeeksFromNow = addDays(now, 21);
+
+  const formattedDate = format(threeWeeksFromNow, 'YYYY-MM-DD');
+  return formattedDate;
+};
 
 const convertToUTCEpoch = d => new Date(new Date(d).toUTCString()).getTime();
 
@@ -16,7 +23,7 @@ class SubmitOrder extends Component {
     name: undefined,
     email: undefined,
     city: undefined,
-    date: earliestOrderUnix,
+    date: earliestOrderDate(),
     theme: undefined,
     quantity: 12,
     flavor: undefined,
@@ -92,7 +99,7 @@ class SubmitOrder extends Component {
             type="date"
             onChange={this.handleOnChange}
             value={this.state.date}
-            min={undefined}
+            min={earliestOrderDate()}
             margin="0 0 1rem 0"
             color="rgba(0, 0, 0, 0.4)"
           />
