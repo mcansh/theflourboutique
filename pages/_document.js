@@ -22,8 +22,8 @@ class MyDocument extends Document {
             color={colors.pink}
           />
           <meta name="theme-color" content={colors.pink} />
-          <link rel="shortcut icon" href="/images/favicon.png" />
-          <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+          <link rel="shortcut icon" href="/static/logo.png" />
+          <link rel="apple-touch-icon" href="/static/apple-touch-icon.png" />
         </Head>
         <body>
           <Main />
