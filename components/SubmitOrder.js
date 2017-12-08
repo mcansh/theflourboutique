@@ -16,6 +16,8 @@ const earliestOrderDate = () => {
   return formattedDate;
 };
 
+const minimumOrderQuantity = 12;
+
 const convertToUTCEpoch = d => new Date(new Date(d).toUTCString()).getTime();
 
 class SubmitOrder extends Component {
@@ -25,7 +27,7 @@ class SubmitOrder extends Component {
     city: undefined,
     date: earliestOrderDate(),
     theme: undefined,
-    quantity: 12,
+    quantity: minimumOrderQuantity,
     flavor: undefined,
     comments: undefined,
   };
@@ -118,7 +120,7 @@ class SubmitOrder extends Component {
             onChange={this.handleOnChange}
             value={this.state.quantity}
             placeholder="Quantity"
-            min={12}
+            min={minimumOrderQuantity}
             margin="0 0 1rem 0"
             color="rgba(0, 0, 0, 0.4)"
           />
