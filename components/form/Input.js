@@ -12,6 +12,7 @@ const Input = ({
   value,
   required,
   min,
+  max,
   margin,
   color,
 }) => {
@@ -30,6 +31,7 @@ const Input = ({
         value={value}
         required={required}
         min={min}
+        max={max}
       />
       <style jsx>{`
         input {
@@ -53,6 +55,7 @@ Input.defaultProps = {
   value: undefined,
   required: false,
   min: null,
+  max: null,
   type: 'text',
   placeholder: '',
 };
@@ -70,6 +73,7 @@ Input.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   required: PropTypes.bool,
   min: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  max: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   margin: PropTypes.string,
   color: PropTypes.string,
 };
