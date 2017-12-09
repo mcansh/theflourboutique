@@ -24,7 +24,9 @@ const TextArea = ({ name, onChange, margin, color }) => {
           background: #fff;
           border-radius: 0.5rem;
           outline: none;
-          font-size: 1.6rem;
+          font-size: 1.2rem;
+          font-weight: 400;
+          font-family: inherit;
         }
       `}</style>
     </FormField>
