@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { colors } from '../../theme';
+import { colors, input } from '../../theme';
 import FormField from './FormField';
 import Label from './Label';
 
@@ -32,6 +32,7 @@ const Input = ({
         required={required}
         min={min}
         max={max}
+        style={{ ...input }}
       />
       <style jsx>{`
         input {
@@ -46,9 +47,6 @@ const Input = ({
           background: #fff;
           border-radius: 0.5rem;
           outline: none;
-          font-size: 1.2rem;
-          font-weight: 400;
-          font-family: inherit;
         }
 
         input:focus {

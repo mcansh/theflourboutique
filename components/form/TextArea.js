@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FormField from './FormField';
 import Label from './Label';
-import { colors } from '../../theme';
+import { colors, input } from '../../theme';
 
 const TextArea = ({ name, onChange, margin, color }) => {
   const lowercaseName = name.toLowerCase();
@@ -11,7 +11,12 @@ const TextArea = ({ name, onChange, margin, color }) => {
       <Label margin={margin} htmlFor={lowercaseName} color={color}>
         {name}
       </Label>
-      <textarea id={lowercaseName} name={name} onChange={onChange} />
+      <textarea
+        id={lowercaseName}
+        name={name}
+        onChange={onChange}
+        style={{ ...input }}
+      />
       <style jsx>{`
         textarea {
           resize: vertical;
@@ -24,9 +29,6 @@ const TextArea = ({ name, onChange, margin, color }) => {
           background: #fff;
           border-radius: 0.5rem;
           outline: none;
-          font-size: 1.2rem;
-          font-weight: 400;
-          font-family: inherit;
         }
       `}</style>
     </FormField>

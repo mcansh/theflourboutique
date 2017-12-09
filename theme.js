@@ -18,4 +18,10 @@ const sizing = {
   small: '',
 };
 
-export { colors, transitions, sizing };
+const input = {
+  fontSize: '1.2rem',
+  fontWeight: 400,
+  fontFamily: 'inherit',
+};
+
+export { colors, transitions, sizing, input };

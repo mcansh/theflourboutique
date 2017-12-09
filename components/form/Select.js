@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { colors } from '../../theme';
+import { colors, input } from '../../theme';
 import FormField from './FormField';
 import Label from './Label';
 
@@ -17,7 +17,13 @@ const Select = ({
     <Label margin={margin} htmlFor={name} color={color}>
       {name}
     </Label>
-    <select id={name} onChange={onChange} name={name} value={defaultValue}>
+    <select
+      id={name}
+      onChange={onChange}
+      name={name}
+      value={defaultValue}
+      style={{ ...input }}
+    >
       {options.map(opt => (
         <option key={opt} value={opt} disabled={opt === disabled}>
           {opt}
@@ -35,9 +41,6 @@ const Select = ({
         background: #fff;
         border-radius: 0.5rem;
         outline: none;
-        font-size: 1.2rem;
-        font-weight: 400;
-        font-family: inherit;
       }
     `}</style>
   </FormField>
