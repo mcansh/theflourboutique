@@ -52,10 +52,10 @@ const Input = ({
 };
 
 Input.defaultProps = {
-  value: undefined,
+  value: '',
   required: false,
-  min: null,
-  max: null,
+  min: '',
+  max: '',
   type: 'text',
   placeholder: '',
 };

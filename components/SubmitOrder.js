@@ -22,14 +22,14 @@ const convertToUTCEpoch = d => new Date(new Date(d).toUTCString()).getTime();
 
 class SubmitOrder extends Component {
   state = {
-    name: undefined,
-    email: undefined,
-    city: undefined,
+    name: '',
+    email: '',
+    city: '',
     date: earliestOrderDate(),
-    theme: undefined,
+    theme: '',
     quantity: minimumOrderQuantity,
-    flavor: undefined,
-    comments: undefined,
+    flavor: '',
+    comments: '',
   };
 
   handleOnChange = e => {
