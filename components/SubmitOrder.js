@@ -8,6 +8,16 @@ import Select from './form/Select';
 import TextArea from './form/TextArea';
 import { Button } from './Button';
 
+const cookieOptions = [
+  'Flavor of Cookies',
+  'Vanilla sugar cookie with almond royal icing',
+  'Chocolate cookie with vanilla royal icing',
+  'Lemon poppyseed sugar cookie with lemon royal icing',
+  'Lemon sugar cookie with raspberry royal icing',
+  'Cookies and Cream sugar cookie with Cookies and Cream royal icing',
+  'Mint Chocolate Chip cookie with mint royal icing',
+];
+
 const earliestOrderDate = () => {
   const now = new Date();
   const threeWeeksFromNow = addDays(now, 21);
@@ -28,7 +38,7 @@ class SubmitOrder extends Component {
     date: earliestOrderDate(),
     theme: '',
     quantity: minimumOrderQuantity,
-    flavor: '',
+    flavor: cookieOptions[0],
     comments: '',
   };
 
@@ -127,19 +137,9 @@ class SubmitOrder extends Component {
           <Select
             onChange={this.handleOnChange}
             name="Flavor"
-            defaultValue="Flavor of Cookies"
-            options={[
-              { text: 'Flavor of Cookies', selected: true, disabled: true },
-              { text: 'Vanilla sugar cookie with almond royal icing' },
-              { text: 'Chocolate cookie with vanilla royal icing' },
-              { text: 'Lemon poppyseed sugar cookie with lemon royal icing' },
-              { text: 'Lemon sugar cookie with raspberry royal icing' },
-              {
-                text:
-                  'Cookies and Cream sugar cookie with Cookies and Cream royal icing',
-              },
-              { text: 'Mint Chocolate Chip cookie with mint royal icing' },
-            ]}
+            defaultValue={this.state.flavor}
+            disabled={cookieOptions[0]}
+            options={cookieOptions}
             margin="0 0 1rem 0"
             color="rgba(0, 0, 0, 0.4)"
           />

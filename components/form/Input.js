@@ -39,12 +39,18 @@ const Input = ({
           width: 100%;
           appearance: none;
           border: 1px solid ${colors.pink};
+          transition: 200ms border ease-in-out;
+          will-change: border-color;
           padding: 1rem 1.5rem;
           margin-bottom: 0.5rem;
           background: #fff;
           border-radius: 0.5rem;
           outline: none;
           font-size: 1.6rem;
+        }
+
+        input:focus {
+          border-color: black;
         }
       `}</style>
     </FormField>
