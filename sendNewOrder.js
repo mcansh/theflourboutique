@@ -1,5 +1,5 @@
 // ran on graphcool after an order is created
-
+/* eslint-disable */
 const postmark = require('postmark');
 
 const client = new postmark.Client('');
@@ -36,3 +36,4 @@ module.exports = event => {
     },
   });
 };
+/* eslint-enable */
