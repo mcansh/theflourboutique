@@ -2,19 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
+import format from 'date-fns/format';
 import { Huge } from './Type';
 import Back2Home from '../components/Back2Home';
 import Order from './Order';
-
-const formatDate = epoch => {
-  const date = new Date(epoch);
-  const m = date.getMonth() + 1;
-  const month = m < 10 ? `0${m}` : `${m}`;
-  const d = date.getDate() + 1;
-  const day = d < 10 ? `0${d}` : `${d}`;
-  const year = date.getFullYear();
-  return `${month}/${day}/${year}`;
-};
 
 const AllOrders = ({ data: { loading, error, allOrders } }) => {
   if (error) {
@@ -27,44 +18,43 @@ const AllOrders = ({ data: { loading, error, allOrders } }) => {
     <div>
       <Back2Home />
       <Huge text="All Cookie Orders" />
-      <div className="orders">
-        {allOrders.map(
-          ({
-            id,
-            name,
-            email,
-            date,
-            city,
-            flavor,
-            theme,
-            quantity,
-            done,
-            comments,
-          }) => {
-            const formattedDate = formatDate(date);
-            return (
-              <Order
-                key={id}
-                name={name}
-                email={email}
-                date={formattedDate}
-                city={city}
-                flavor={flavor}
-                theme={theme}
-                quantity={quantity}
-                done={done}
-                comments={comments}
-              />
-            );
-          },
-        )}
-      </div>
+      <ul className="orders">
+        <li>
+          <p>Name:</p>
+          <p>Email:</p>
+          <p>Date:</p>
+          <p>City:</p>
+          <p>Theme:</p>
+          <p>Quantity:</p>
+          <p>Done:</p>
+        </li>
+        {allOrders.map(order => (
+          <Order
+            key={order.id}
+            name={order.name}
+            email={order.email}
+            date={format(order.date, 'MM/DD/YYYY')}
+            city={order.city}
+            theme={order.theme}
+            quantity={order.quantity}
+            done={order.done}
+          />
+        ))}
+      </ul>
       <style jsx>{`
         .orders {
           width: 100%;
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          grid-auto-rows: 1fr;
+          padding: 0;
+        }
+        li {
+          width: 100%;
+          line-height: 1.5;
+          list-style: none;
+          display: flex;
+          font-size: 1.2rem;
+        }
+        li > p {
+          flex: 1;
         }
       `}</style>
     </div>
@@ -92,7 +82,20 @@ AllOrders.propTypes = {
   data: PropTypes.shape({
     loading: PropTypes.bool,
     error: PropTypes.string,
-    allOrders: PropTypes.object,
+    allOrders: PropTypes.arrayOf(
+      PropTypes.shape({
+        city: PropTypes.string,
+        comments: PropTypes.string,
+        date: PropTypes.number,
+        done: PropTypes.bool,
+        email: PropTypes.string,
+        flavor: PropTypes.string,
+        id: PropTypes.string,
+        name: PropTypes.string,
+        quantity: PropTypes.number,
+        theme: PropTypes.string,
+      }),
+    ),
   }).isRequired,
 };
 

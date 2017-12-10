@@ -1,54 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Order = ({
-  name,
-  email,
-  date,
-  city,
-  flavor,
-  theme,
-  quantity,
-  done,
-  comments,
-}) => (
-  <div>
-    <h1>Name: {name}</h1>
-    <p>Email: {email}</p>
-    <p>Date: {date}</p>
-    <p>City: {city}</p>
-    <p>Flavor: {flavor}</p>
-    <p>Theme: {theme}</p>
-    <p>Quantity: {quantity}</p>
-    <p>Done: {done ? '✅' : '⬜'}</p>
-    {comments ? <p>Comments: {comments}</p> : null}
+const Order = ({ name, email, date, city, theme, quantity, done }) => (
+  <li>
+    <p>{name}</p>
+    <p>{email}</p>
+    <p>{date}</p>
+    <p>{city}</p>
+    <p>{theme}</p>
+    <p>{quantity}</p>
+    <input type="checkbox" checked={done} readOnly />
     <style jsx>{`
-      div {
+      li {
         width: 100%;
-        height: 100%;
         line-height: 1.5;
+        list-style: none;
+        display: flex;
+        font-size: 1.2rem;
       }
-      p {
-        font-size: 1.6rem;
+      li > p {
+        flex: 1;
       }
     `}</style>
-  </div>
+  </li>
 );
-
-Order.defaultProps = {
-  comments: null,
-};
 
 Order.propTypes = {
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
-  flavor: PropTypes.string.isRequired,
   theme: PropTypes.string.isRequired,
   quantity: PropTypes.number.isRequired,
   done: PropTypes.bool.isRequired,
-  comments: PropTypes.string,
 };
 
 export default Order;
