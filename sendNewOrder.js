@@ -21,9 +21,9 @@ module.exports = event => {
   const dateString = `${month} ${day}, ${year}`;
 
   client.sendEmailWithTemplate({
-    From: 'noreply@loganmcansh.com',
+    From: '',
     TemplateId: 4199224,
-    To: 'logan@mcan.sh',
+    To: '',
     TemplateModel: {
       name,
       email,
