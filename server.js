@@ -1,9 +1,9 @@
-const { createServer } = require('http');
-const { parse } = require('url');
-const next = require('next');
-const { join } = require('path');
+import { createServer } from 'http';
+import { parse } from 'url';
+import next from 'next';
+import { join } from 'path';
 
-const manifest = require('./lib/manifest');
+import manifest from './lib/manifest';
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dir: '.', dev });
