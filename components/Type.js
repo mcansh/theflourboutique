@@ -8,6 +8,10 @@ const Huge = ({ text }) => (
       h1 {
         font-size: 7.2rem;
         margin: 0.67em 0;
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+        padding-left: constant(safe-area-inset-left);
+        padding-right: constant(safe-area-inset-right);
       }
 
       @media (max-width: 700px) {
