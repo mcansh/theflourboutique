@@ -47,12 +47,38 @@ const H2 = ({ text }) => (
   </h2>
 );
 
-Huge.propTypes = {
+const Paragraph = ({ children }) => (
+  <p>
+    {children}
+    <style jsx>{`
+      p {
+        font-size: 1.6rem;
+        text-align: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto;
+        line-height: 1.5;
+      }
+      @media (max-width: 880px) {
+        p {
+          width: 80vw;
+        }
+      }
+      @media (max-width: 550px) {
+        p {
+          width: 95vw;
+        }
+      }
+    `}</style>
+  </p>
+);
+
+const textProps = {
   text: PropTypes.string.isRequired,
 };
+Paragraph.propTypes = { children: PropTypes.node.isRequired };
+Huge.propTypes = textProps;
+H2.propTypes = textProps;
 
-H2.propTypes = {
-  text: PropTypes.string.isRequired,
-};
-
-export { Huge, H2 };
+export { Huge, H2, Paragraph };
