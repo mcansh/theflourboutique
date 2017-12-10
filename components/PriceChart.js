@@ -41,6 +41,7 @@ const PriceChart = ({ prices }) => (
         align-items: center;
         height: 50px;
         width: 100%;
+        font-size: 1.6rem;
       }
       .price > div {
         flex: 1;
