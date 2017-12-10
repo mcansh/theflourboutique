@@ -18,7 +18,7 @@ app.prepare().then(() => {
     if (/^\/sw.js\/?$/.test(pathname)) {
       const filePath = join(__dirname, '.next', pathname);
       app.serveStatic(req, res, filePath);
-    } else if (/^\/manifest.json\/?$/.test(pathname)) {
+    } else if (/^\/manifest(.json)?\/?$/.test(pathname)) {
       res.setHeader('Content-Type', 'application/json');
       res.end(manifest());
     } else {
