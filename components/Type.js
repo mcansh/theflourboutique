@@ -63,15 +63,16 @@ const Paragraph = ({ children }) => (
         align-items: center;
         margin: 20px auto;
         line-height: 1.5;
+        max-width: 70vw;
       }
       @media (max-width: 880px) {
         p {
-          width: 80vw;
+          max-width: 80vw;
         }
       }
       @media (max-width: 550px) {
         p {
-          width: 95vw;
+          max-width: 95vw;
         }
       }
     `}</style>
