@@ -1,9 +1,5 @@
 const colors = {
-  green: '#30e849',
-  ellow: '#eeca66',
-  red: '#c71f16',
-  blue: '#3080e8',
-  peach: ' peachpuff',
+  peach: 'peachpuff',
   altGreen: '#C6DC82',
   secondary: '#C6DD7D',
   pink: '#feeeed',
@@ -14,8 +10,13 @@ const transitions = {
   default: 'all 300ms ease-in-out',
 };
 
-const sizing = {
-  small: '',
+const chart = {
+  green: '#30e849',
+  yellow: '#eeca66',
+  orange: 'orangered',
+  red: '#c71f16',
+  blue: '#3080e8',
+  salmon: 'salmon',
 };
 
 const input = {
@@ -24,4 +25,4 @@ const input = {
   fontFamily: 'inherit',
 };
 
-export { colors, transitions, sizing, input };
+export { colors, transitions, input, chart };
