@@ -6,6 +6,11 @@ import PriceChart from '../components/PriceChart';
 
 const prices = [
   {
+    size: 'Per Cookie',
+    basic: 'Basic\n(1 color)',
+    detailed: 'Detailed\n(2-5 colors)',
+  },
+  {
     size: 1,
     basic: '$1.00',
     detailed: '$1.25',

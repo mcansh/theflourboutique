@@ -4,20 +4,13 @@ import { chart } from '../theme';
 
 const PriceChart = ({ prices }) => (
   <div className="chart">
-    <div className="price">
-      <div className="size">Per Cookie</div>
-      <div className="basic">
-        Basic <br /> (1 color)
-      </div>
-      <div className="detailed">
-        Detailed <br /> (2-5 colors)
-      </div>
-    </div>
     {prices.map(p => (
       <div key={p.size} className="price">
         <div className="size">{p.size}</div>
-        <div className="basic">{p.basic}</div>
-        <div className="detailed">{p.detailed}</div>
+        <div className="basic">{p.basic.split('\n').map(i => <p>{i}</p>)}</div>
+        <div className="detailed">
+          {p.detailed.split('\n').map(i => <p>{i}</p>)}
+        </div>
       </div>
     ))}
     <style jsx>{`
