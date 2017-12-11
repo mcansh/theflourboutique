@@ -16,11 +16,11 @@ const Back2Home = () => (
           text-decoration: none;
           color: #000;
           transition: all 300ms ease-in-out;
+          margin-left: env(safe-area-inset-left);
+          margin-left: constant(safe-area-inset-left);
           margin: 1.5rem;
           border-radius: 3px;
           font-size: 1.6rem;
-          margin-left: env(safe-area-inset-left);
-          margin-left: constant(safe-area-inset-left);
         }
         a:hover {
           background: ${colors.peach};
