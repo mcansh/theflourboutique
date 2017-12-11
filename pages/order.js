@@ -68,16 +68,16 @@ class Order extends Component {
     } = this.state;
 
     const { createOrder } = this.props;
-    createOrder(
+    createOrder({
       name,
       email,
       city,
-      convertToUTCEpoch(date),
+      date: convertToUTCEpoch(date),
       theme,
-      parseFloat(quantity),
+      quantity: parseFloat(quantity),
       flavor,
       comments,
-    );
+    });
   };
 
   render() {

@@ -14,7 +14,9 @@
     "dev": "next",
     "build": "next build",
     "dev:server": "nodemon -r @std/esm ./server.js",
-    "test": "eslint ./"
+    "test": "eslint ./",
+    "build:docker": "docker build -t theflourboutique .",
+    "start:docker": "docker run -p 3000:3000 theflourboutique"
   },
   "now": {
     "dotenv": "variables.env.now",
