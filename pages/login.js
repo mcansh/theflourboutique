@@ -20,7 +20,7 @@ class Login extends Component {
       variables: this.state,
     });
     const { token } = response.data.signinUser;
-    localStorage.setItem('token', token);
+    document.cookie = `token=${token}`;
     Router.push('/');
   };
 
