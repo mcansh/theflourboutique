@@ -29,6 +29,7 @@ const TextArea = ({ name, onChange, margin, color }) => {
           background: #fff;
           border-radius: 0.5rem;
           outline: none;
+          min-height: 100px;
         }
       `}</style>
     </FormField>
