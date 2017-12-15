@@ -3,7 +3,8 @@
   "productName": "The Flour Boutique",
   "productShortName": "TFB",
   "version": "1.2.0-canary.0",
-  "description": "The Flour Boutique is a bakery from Lynette McAnsh based in Utica, Michigan. Cookies range from various shapes and sizes as well as from basic to elaborate.",
+  "description":
+    "The Flour Boutique is a bakery from Lynette McAnsh based in Utica, Michigan. Cookies range from various shapes and sizes as well as from basic to elaborate.",
   "private": true,
   "engines": {
     "node": ">= 7.6.0"
@@ -19,9 +20,7 @@
   },
   "now": {
     "dotenv": "variables.env.now",
-    "alias": [
-      "theflourboutique.com"
-    ]
+    "alias": ["theflourboutique.com"]
   },
   "@std/esm": {
     "esm": "all",
