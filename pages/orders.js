@@ -70,7 +70,7 @@ const Orders = ({ url, data: { loading, error, allOrders } }) => {
 
 Orders.propTypes = {
   url: PropTypes.shape({
-    pathname: PropTypes.string,
+    pathname: PropTypes.string
   }).isRequired,
   data: PropTypes.shape({
     loading: PropTypes.bool,
@@ -86,10 +86,10 @@ Orders.propTypes = {
         id: PropTypes.string,
         name: PropTypes.string,
         quantity: PropTypes.number,
-        theme: PropTypes.string,
-      }),
-    ),
-  }).isRequired,
+        theme: PropTypes.string
+      })
+    )
+  }).isRequired
 };
 
 const AllOrdersQuery = gql`
@@ -126,8 +126,8 @@ Orders.getInitialProps = ctx => {
 
 const GraphQLAllOrders = graphql(AllOrdersQuery, {
   props: ({ data }) => ({
-    data,
-  }),
+    data
+  })
 })(Orders);
 
 export default withData(GraphQLAllOrders);
