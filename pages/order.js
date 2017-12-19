@@ -109,11 +109,13 @@ class Order extends Component {
         errors
       });
     }
+    return hasErrors;
   };
 
   handleSubmit = async e => {
     e.preventDefault();
     const error = this.validate();
+
     const {
       name,
       email,
