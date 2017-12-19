@@ -15,12 +15,13 @@ const Input = ({
   max,
   margin,
   color,
+  error
 }) => {
   const lowercaseName = name.toLowerCase();
   return (
     <FormField>
       <Label margin={margin} color={color} htmlFor={lowercaseName}>
-        {name}
+        {error || name}
       </Label>
       <input
         id={lowercaseName}
@@ -39,7 +40,9 @@ const Input = ({
           max-width: 100%;
           width: 100%;
           appearance: none;
-          border: 1px solid ${colors.pink};
+          border: ${error
+            ? '1px solid #c71f16'
+            : `1px solid ${colors.secondary}`};
           transition: 200ms border ease-in-out;
           will-change: border-color;
           padding: 1rem 1.5rem;
@@ -64,11 +67,9 @@ Input.defaultProps = {
   max: '',
   type: 'text',
   placeholder: '',
-};
-
-Input.defaultProps = {
   margin: 0,
   color: 'black',
+  error: ''
 };
 
 Input.propTypes = {
@@ -82,6 +83,7 @@ Input.propTypes = {
   max: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   margin: PropTypes.string,
   color: PropTypes.string,
+  error: PropTypes.string
 };
 
 export default Input;

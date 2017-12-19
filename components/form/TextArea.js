@@ -23,13 +23,19 @@ const TextArea = ({ name, onChange, margin, color }) => {
           max-width: 100%;
           width: 100%;
           appearance: none;
-          border: 1px solid ${colors.pink};
+          border: 1px solid ${colors.secondary};
+          transition: 200ms border ease-in-out;
+          will-change: border-color;
           padding: 1rem 1.5rem;
           margin-bottom: 0.5rem;
           background: #fff;
           border-radius: 0.5rem;
           outline: none;
           min-height: 100px;
+        }
+
+        textarea:focus {
+          border-color: black;
         }
       `}</style>
     </FormField>

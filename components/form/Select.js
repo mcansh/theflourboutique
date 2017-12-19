@@ -12,10 +12,11 @@ const Select = ({
   margin,
   color,
   disabled,
+  error
 }) => (
   <FormField>
     <Label margin={margin} htmlFor={name} color={color}>
-      {name}
+      {error || name}
     </Label>
     <select
       id={name}
@@ -35,12 +36,20 @@ const Select = ({
         max-width: 100%;
         width: 100%;
         appearance: none;
-        border: 1px solid ${colors.pink};
+        border: ${error
+          ? '1px solid #c71f16'
+          : `1px solid ${colors.secondary}`};
+        transition: 200ms border ease-in-out;
+        will-change: border-color;
         padding: 1rem 1.5rem;
         margin-bottom: 0.5rem;
         background: #fff;
         border-radius: 0.5rem;
         outline: none;
+      }
+
+      select:focus {
+        border-color: black;
       }
     `}</style>
   </FormField>
@@ -51,6 +60,7 @@ Select.defaultProps = {
   margin: 0,
   color: 'black',
   disabled: '',
+  error: ''
 };
 
 Select.propTypes = {
@@ -61,6 +71,7 @@ Select.propTypes = {
   margin: PropTypes.string,
   color: PropTypes.string,
   disabled: PropTypes.string,
+  error: PropTypes.string
 };
 
 export default Select;
