@@ -1,6 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { transitions } from '../theme';
+import { productName } from '../package.json';
+
+const currentYear = new Date().getFullYear();
 
 const Footer = () => (
   <nav>
@@ -8,9 +11,9 @@ const Footer = () => (
       <a>Price Guide</a>
     </Link>
     <p>
-      &copy; {new Date().getFullYear()}{' '}
+      &copy; {currentYear}{' '}
       <Link href="/" prefetch>
-        <a>The Flour Boutique</a>
+        <a>{productName}</a>
       </Link>
     </p>
     <Link href="/order" prefetch>
@@ -32,8 +35,10 @@ const Footer = () => (
         color: #666;
         text-decoration: none;
         transition: ${transitions.default};
+        will-change: color;
         position: relative;
       }
+
       a::after {
         position: absolute;
         content: '';
@@ -46,15 +51,19 @@ const Footer = () => (
         transition: ${transitions.default};
         will-change: opacity;
       }
+
       a:hover {
         color: black;
       }
+
       a:hover::after {
         opacity: 1;
       }
+
       p {
         margin: 0 1rem;
       }
+
       p a {
         color: currentColor;
         margin: 0;
@@ -65,6 +74,7 @@ const Footer = () => (
           flex-direction: column;
           margin: 2rem 0;
         }
+
         p {
           order: -1;
           margin: 1rem 0;
