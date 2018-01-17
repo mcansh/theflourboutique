@@ -61,7 +61,7 @@
     "babel-loader": "7.1.2",
     "babel-preset-env": "^1.6.1",
     "concurrently": "3.5.1",
-    "css-loader": "0.28.8",
+    "css-loader": "0.28.9",
     "cssnano": "^3.10.0",
     "eslint": "4.15.0",
     "eslint-config-airbnb-base": "12.1.0",
