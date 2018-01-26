@@ -73,9 +73,9 @@ PriceChart.propTypes = {
     PropTypes.shape({
       size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       basic: PropTypes.string,
-      detailed: PropTypes.string
+      detailed: PropTypes.string,
     })
-  ).isRequired
+  ).isRequired,
 };
 
 export default PriceChart;

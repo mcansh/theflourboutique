@@ -12,7 +12,7 @@ const Select = ({
   margin,
   color,
   disabled,
-  error
+  error,
 }) => (
   <FormField>
     <Label margin={margin} htmlFor={name} color={color}>
@@ -60,7 +60,7 @@ Select.defaultProps = {
   margin: 0,
   color: 'black',
   disabled: '',
-  error: ''
+  error: '',
 };
 
 Select.propTypes = {
@@ -71,7 +71,7 @@ Select.propTypes = {
   margin: PropTypes.string,
   color: PropTypes.string,
   disabled: PropTypes.string,
-  error: PropTypes.string
+  error: PropTypes.string,
 };
 
 export default Select;

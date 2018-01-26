@@ -10,13 +10,13 @@ import Input from '../components/form/Input';
 class Login extends Component {
   state = {
     email: '',
-    password: ''
+    password: '',
   };
 
   handleSubmit = async e => {
     e.preventDefault();
     const response = await this.props.mutate({
-      variables: this.state
+      variables: this.state,
     });
     const { token } = response.data.signinUser;
     document.cookie = `token=${token}`;
@@ -68,9 +68,9 @@ class Login extends Component {
 
 Login.propTypes = {
   url: PropTypes.shape({
-    pathname: PropTypes.string
+    pathname: PropTypes.string,
   }).isRequired,
-  mutate: PropTypes.func.isRequired
+  mutate: PropTypes.func.isRequired,
 };
 
 const loginMutation = gql`

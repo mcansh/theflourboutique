@@ -78,16 +78,16 @@ const Button = props => {
 };
 
 Button.defaultProps = {
-  href: null
+  href: null,
 };
 
 Button.propTypes = {
   href: PropTypes.string,
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
 };
 
 ButtonWrap.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export { ButtonWrap, Button };

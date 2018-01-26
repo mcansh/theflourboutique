@@ -127,13 +127,13 @@ class Page extends React.Component {
 }
 
 Page.defaultProps = {
-  title: null
+  title: null,
 };
 
 Page.propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string,
-  pathname: PropTypes.string.isRequired
+  pathname: PropTypes.string.isRequired,
 };
 
 export default withSentry(Page);

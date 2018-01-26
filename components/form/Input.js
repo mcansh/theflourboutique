@@ -15,7 +15,7 @@ const Input = ({
   max,
   margin,
   color,
-  error
+  error,
 }) => {
   const lowercaseName = name.toLowerCase();
   return (
@@ -69,7 +69,7 @@ Input.defaultProps = {
   placeholder: '',
   margin: 0,
   color: 'black',
-  error: ''
+  error: '',
 };
 
 Input.propTypes = {
@@ -83,7 +83,7 @@ Input.propTypes = {
   max: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   margin: PropTypes.string,
   color: PropTypes.string,
-  error: PropTypes.string
+  error: PropTypes.string,
 };
 
 export default Input;

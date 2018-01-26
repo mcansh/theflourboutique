@@ -32,7 +32,7 @@ const cookieOptions = [
   'Lemon poppyseed sugar cookie with lemon royal icing',
   'Lemon sugar cookie with raspberry royal icing',
   'Cookies and Cream sugar cookie with Cookies and Cream royal icing',
-  'Mint Chocolate Chip cookie with mint royal icing'
+  'Mint Chocolate Chip cookie with mint royal icing',
 ];
 
 class Order extends Component {
@@ -52,8 +52,8 @@ class Order extends Component {
       date: '',
       theme: '',
       quantity: '',
-      flavor: ''
-    }
+      flavor: '',
+    },
   };
 
   handleOnChange = e => {
@@ -106,7 +106,7 @@ class Order extends Component {
     if (hasErrors) {
       this.setState({
         ...this.state,
-        errors
+        errors,
       });
     }
     return hasErrors;
@@ -124,7 +124,7 @@ class Order extends Component {
       theme,
       quantity,
       flavor,
-      comments
+      comments,
     } = this.state;
 
     const { createOrder } = this.props;
@@ -151,7 +151,7 @@ class Order extends Component {
       theme,
       flavor,
       quantity,
-      errors
+      errors,
     } = this.state;
     return (
       <Page pathname={this.props.url.pathname} title="Order">
@@ -251,8 +251,8 @@ class Order extends Component {
 
 Order.propTypes = {
   url: PropTypes.shape({
-    pathname: PropTypes.string
-  }).isRequired
+    pathname: PropTypes.string,
+  }).isRequired,
 };
 
 const createOrderMutation = gql`
@@ -302,10 +302,10 @@ const GraphQLOrder = graphql(createOrderMutation, {
           theme,
           quantity,
           flavor,
-          comments
-        }
-      })
-  })
+          comments,
+        },
+      }),
+  }),
 })(Order);
 
 export default withData(GraphQLOrder);
