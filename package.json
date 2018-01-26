@@ -3,7 +3,8 @@
   "productName": "The Flour Boutique",
   "productShortName": "TFB",
   "version": "1.2.0-canary.1",
-  "description": "The Flour Boutique is a bakery from Lynette McAnsh based in Utica, Michigan. Cookies range from various shapes and sizes as well as from basic to elaborate.",
+  "description":
+    "The Flour Boutique is a bakery from Lynette McAnsh based in Utica, Michigan. Cookies range from various shapes and sizes as well as from basic to elaborate.",
   "private": true,
   "engines": {
     "node": ">= 7.6.0"
@@ -13,19 +14,14 @@
     "dev": "next",
     "build": "next build",
     "dev:server": "nodemon -r @std/esm ./server.js",
-    "test": "eslint ./",
-    "build:docker": "docker build -t theflourboutique .",
-    "start:docker": "docker run -p 3000:3000 theflourboutique"
+    "test": "eslint ./"
   },
   "now": {
     "dotenv": "variables.env.now",
-    "alias": [
-      "theflourboutique.com",
-      "www.theflourboutique.com"
-    ]
+    "alias": ["theflourboutique.com", "www.theflourboutique.com"]
   },
   "@std/esm": {
-    "esm": "all",
+    "esm": "js",
     "cjs": true
   },
   "dependencies": {
