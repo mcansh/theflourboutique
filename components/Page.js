@@ -1,13 +1,12 @@
 import React from 'react';
 import Head from 'next/head';
-import Raven from 'raven-js';
 import NProgress from 'nprogress';
 import Router from 'next/router';
 import PropTypes from 'prop-types';
 import Footer from '../components/Footer';
-import { version } from '../package.json';
 import Back2Home from '../components/Back2Home';
 import { initGA, logPageView } from '../lib/analytics';
+import withSentry from '../lib/withSentry';
 
 import { colors } from '../theme';
 
@@ -24,11 +23,6 @@ class Page extends React.Component {
         window.GA_INITIALIZED = true;
       }
       logPageView();
-      // Sentry Error Logging
-      Raven.config(process.env.SENTRY, {
-        release: version,
-        environment: process.env.NODE_ENV,
-      }).install();
       // Service Worker
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker
@@ -133,13 +127,13 @@ class Page extends React.Component {
 }
 
 Page.defaultProps = {
-  title: null,
+  title: null
 };
 
 Page.propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string,
-  pathname: PropTypes.string.isRequired,
+  pathname: PropTypes.string.isRequired
 };
 
-export default Page;
+export default withSentry(Page);
