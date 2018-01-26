@@ -8,38 +8,38 @@ const prices = [
   {
     size: 'Per Cookie',
     basic: 'Basic\n(1 color)',
-    detailed: 'Detailed\n(2-5 colors)',
+    detailed: 'Detailed\n(2-5 colors)'
   },
   {
     size: 1,
     basic: '$1.00',
-    detailed: '$1.25',
+    detailed: '$1.25'
   },
   {
     size: 2,
     basic: '$1.75',
-    detailed: '$2.00',
+    detailed: '$2.00'
   },
   {
     size: 3,
     basic: '$2.75',
-    detailed: '$3.00',
+    detailed: '$3.00'
   },
   {
     size: 4,
     basic: '$3.75',
-    detailed: '$4.00',
+    detailed: '$4.00'
   },
   {
     size: 5,
     basic: '$4.75',
-    detailed: '$5.00',
+    detailed: '$5.00'
   },
   {
     size: 6,
     basic: '$5.75',
-    detailed: '$6.00',
-  },
+    detailed: '$6.00'
+  }
 ];
 
 const Prices = ({ url: { pathname } }) => (
@@ -60,8 +60,8 @@ const Prices = ({ url: { pathname } }) => (
 
 Prices.propTypes = {
   url: PropTypes.shape({
-    pathname: PropTypes.string,
-  }).isRequired,
+    pathname: PropTypes.string
+  }).isRequired
 };
 
 export default Prices;

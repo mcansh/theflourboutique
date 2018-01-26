@@ -71,7 +71,7 @@ const PriceChart = ({ prices }) => (
 PriceChart.propTypes = {
   prices: PropTypes.arrayOf(
     PropTypes.shape({
-      size: PropTypes.string,
+      size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       basic: PropTypes.string,
       detailed: PropTypes.string
     })
