@@ -6,7 +6,7 @@ import { join } from 'path';
 import manifest from './lib/manifest';
 
 const dev = process.env.NODE_ENV !== 'production';
-const app = next({ dir: '.', dev });
+const app = next({ dev });
 const PORT = process.env.PORT || 3000;
 const handle = app.getRequestHandler();
 
