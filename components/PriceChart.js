@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { chart } from '../theme';
 
-const breakLines = string => string.split('\n').map(i => <p>{i}</p>);
+const breakLines = string => string.split('\n').map(i => <p key={i}>{i}</p>);
 
 const PriceChart = ({ prices }) => (
   <div className="chart">
