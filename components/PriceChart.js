@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { chart } from '../theme';
 
+const breakLines = string => string.split('\n').map(i => <p>{i}</p>);
+
 const PriceChart = ({ prices }) => (
   <div className="chart">
     {prices.map(p => (
       <div key={p.size} className="price">
         <div className="size">{p.size}</div>
-        <div className="basic">{p.basic.split('\n').map(i => <p>{i}</p>)}</div>
-        <div className="detailed">
-          {p.detailed.split('\n').map(i => <p>{i}</p>)}
-        </div>
+        <div className="basic">{breakLines(p.basic)}</div>
+        <div className="detailed">{breakLines(p.detailed)}</div>
       </div>
     ))}
     <style jsx>{`
@@ -73,9 +73,9 @@ PriceChart.propTypes = {
     PropTypes.shape({
       size: PropTypes.string,
       basic: PropTypes.string,
-      detailed: PropTypes.string,
-    }),
-  ).isRequired,
+      detailed: PropTypes.string
+    })
+  ).isRequired
 };
 
 export default PriceChart;
