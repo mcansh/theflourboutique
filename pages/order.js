@@ -4,6 +4,8 @@ import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import addDays from 'date-fns/add_days';
 import format from 'date-fns/format';
+import isEmail from 'validator/lib/isEmail';
+import normalizeEmail from 'validator/lib/normalizeEmail';
 import withData from '../lib/withData';
 import Page from '../components/Page';
 import Logo from '../components/Logo';
@@ -71,9 +73,7 @@ class Order extends Component {
       errors.name = 'Name is required';
     }
 
-    const emailRegex = /^(([^<>()\\\\.,;:\s@"]+(\.[^<>()\\\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-    if (!email || !emailRegex.test(email)) {
+    if (!email || isEmail(email)) {
       hasErrors = true;
       errors.email = 'Email is required';
     }
@@ -131,7 +131,7 @@ class Order extends Component {
     if (!error) {
       createOrder(
         name,
-        email,
+        normalizeEmail(email),
         city,
         convertToUTCEpoch(date),
         theme,
@@ -153,8 +153,9 @@ class Order extends Component {
       quantity,
       errors,
     } = this.state;
+    const { url: { pathname } } = this.props;
     return (
-      <Page pathname={this.props.url.pathname} title="Order">
+      <Page pathname={pathname} title="Order">
         <Logo style={{ marginTop: '6rem' }} />
         <Huge text="Cookie Order Quote" />
         <form onSubmit={this.handleSubmit}>
