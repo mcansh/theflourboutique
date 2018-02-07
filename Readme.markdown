@@ -6,5 +6,5 @@
 
 1. Clone the repo
 2. Install dependencies `$ yarn` or `$ npm install`
-3. Rename `variables.env.sample` to `variables.env` and fill it out.
+3. Rename `sample.env` to `.env` and fill it out.
 4. `$ yarn dev` or `$ npm run dev`

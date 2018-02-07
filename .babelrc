@@ -1,12 +1,24 @@
 {
-  "presets": ["next/babel"],
+  "presets": [
+    "next/babel"
+  ],
   "env": {
     "development": {
       "plugins": [
         [
           "inline-dotenv",
           {
-            "path": "variables.env"
+            "path": ".env.dev"
+          }
+        ]
+      ]
+    },
+    "production": {
+      "plugins": [
+        [
+          "inline-dotenv",
+          {
+            "path": ".env"
           }
         ]
       ]
