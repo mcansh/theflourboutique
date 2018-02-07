@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import Head from 'next/head';
 import NProgress from 'nprogress';
 import Router from 'next/router';
@@ -35,7 +35,7 @@ class Page extends React.Component {
   render() {
     const { title, children, pathname } = this.props;
     return (
-      <div>
+      <Fragment>
         <Head>
           <title>
             {title ? `${title} - The Flour Boutique` : 'The Flour Boutique'}
@@ -121,7 +121,7 @@ class Page extends React.Component {
             }
           }
         `}</style>
-      </div>
+      </Fragment>
     );
   }
 }
