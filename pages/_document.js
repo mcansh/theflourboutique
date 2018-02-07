@@ -5,7 +5,7 @@ import { description } from '../package.json';
 
 const sizes = [32, 57, 72, 96, 120, 128, 144, 152, 195, 228];
 
-const favicons = sizes.map(size => <link rel="icon" href={`/static/favicon-${size}.png`} sizes={`${size}x${size}`} />);
+const favicons = sizes.map(size => <link key={size} rel="icon" href={`/static/favicon-${size}.png`} sizes={`${size}x${size}`} />);
 
 class MyDocument extends Document {
   render() {
