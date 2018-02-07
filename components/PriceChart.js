@@ -17,6 +17,7 @@ const PriceChart = ({ prices }) => (
       .chart {
         box-shadow: 0 4px 16px rgba(38, 38, 38, 0.1);
         width: 70vw;
+        margin: 0 auto;
       }
       @media (max-width: 880px) {
         .chart {
