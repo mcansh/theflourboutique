@@ -18,7 +18,7 @@
     "deploy:pre": "now --docker && now alias canary.theflourboutique.com"
   },
   "now": {
-    "dotenv": "variables.env.now",
+    "dotenv": ".env",
     "alias": [
       "theflourboutique.com",
       "www.theflourboutique.com"
