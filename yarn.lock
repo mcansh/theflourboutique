@@ -4772,9 +4772,9 @@ pascalcase@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/pascalcase/-/pascalcase-0.1.1.tgz#b363e55e8006ca6fe21784d2db22bd15d7917f14"
 
-passport-local-mongoose@4.4.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/passport-local-mongoose/-/passport-local-mongoose-4.4.0.tgz#2a19c885d1ea5e01c56905fb8eaa7a79e015f8fe"
+passport-local-mongoose@4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/passport-local-mongoose/-/passport-local-mongoose-4.5.0.tgz#1c43afd758371e005c5aeca780d6120b077e6065"
   dependencies:
     debug "^3.1.0"
     generaterr "^1.5.0"
