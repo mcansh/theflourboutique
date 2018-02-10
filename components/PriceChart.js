@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { injectIntl } from 'react-intl';
+import { injectIntl, intlShape } from 'react-intl';
 import { chart } from '../theme';
 
 const breakLines = string => string.split('\n').map(i => <p key={i}>{i}</p>);
@@ -96,6 +96,7 @@ PriceChart.propTypes = {
       detailed: PropTypes.string,
     })
   ).isRequired,
+  intl: intlShape.isRequired,
 };
 
 export default injectIntl(PriceChart);

@@ -57,4 +57,23 @@ const GraphQLPrices = graphql(PricesQuery, {
   }),
 })(Prices);
 
+Prices.propTypes = {
+  data: PropTypes.shape({
+    loading: PropTypes.bool,
+    error: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.array,
+      PropTypes.shape({}),
+    ]),
+    allPrices: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string,
+        size: PropTypes.number,
+        basicPrice: PropTypes.number,
+        detailedPrice: PropTypes.number,
+      })
+    ),
+  }).isRequired,
+};
+
 export default withData(GraphQLPrices);
