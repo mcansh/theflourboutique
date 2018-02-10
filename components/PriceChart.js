@@ -1,16 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { injectIntl } from 'react-intl';
 import { chart } from '../theme';
 
 const breakLines = string => string.split('\n').map(i => <p key={i}>{i}</p>);
 
-const PriceChart = ({ prices }) => (
+const PriceChart = ({ prices, intl: { formatNumber } }) => (
   <div className="chart">
-    {prices.map(p => (
-      <div key={p.size} className="price">
-        <div className="size">{p.size}</div>
-        <div className="basic">{breakLines(p.basic)}</div>
-        <div className="detailed">{breakLines(p.detailed)}</div>
+    <div className="price">
+      <div className="size">{breakLines('Per Cookie')}</div>
+      <div className="basic">{breakLines('Basic\n(1 color)')}</div>
+      <div className="detailed">{breakLines('Detailed\n(2-5 colors)')}</div>
+    </div>
+    {prices.map(({ id, size, basicPrice, detailedPrice }) => (
+      <div key={id} className="price">
+        {size && (
+          <div className="size">
+            {size}
+            {'"'}
+          </div>
+        )}
+        {basicPrice && (
+          <div className="basic">
+            {formatNumber(basicPrice, { style: 'currency', currency: 'USD' })}
+          </div>
+        )}
+        {detailedPrice && (
+          <div className="detailed">
+            {formatNumber(detailedPrice, {
+              style: 'currency',
+              currency: 'USD',
+            })}
+          </div>
+        )}
       </div>
     ))}
     <style jsx>{`
@@ -76,4 +98,4 @@ PriceChart.propTypes = {
   ).isRequired,
 };
 
-export default PriceChart;
+export default injectIntl(PriceChart);
