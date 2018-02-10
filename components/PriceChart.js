@@ -62,9 +62,6 @@ const PriceChart = ({ prices }) => (
       .price:last-of-type {
         background: ${chart.blue};
       }
-      .size::after {
-        content: '"';
-      }
     `}</style>
   </div>
 );
