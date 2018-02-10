@@ -79,6 +79,7 @@ class Page extends React.Component {
             padding-left: constant(safe-area-inset-left);
             padding-right: constant(safe-area-inset-right);
             padding-bottom: constant(safe-area-inset-bottom);
+            min-height: 100vh;
           }
 
           #nprogress {
