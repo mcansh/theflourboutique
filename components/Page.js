@@ -3,6 +3,7 @@ import Head from 'next/head';
 import NProgress from 'nprogress';
 import Router, { withRouter } from 'next/router';
 import PropTypes from 'prop-types';
+import withIntl from '../lib/withIntl';
 import Footer from '../components/Footer';
 import Back2Home from '../components/Back2Home';
 import { initGA, logPageView } from '../lib/analytics';
@@ -127,4 +128,4 @@ Page.propTypes = {
   }).isRequired,
 };
 
-export default withRouter(withSentry(Page));
+export default withIntl(withRouter(withSentry(Page)));

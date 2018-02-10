@@ -2,8 +2,12 @@ import polka from 'polka';
 import { parse } from 'url';
 import next from 'next';
 import { join } from 'path';
+import IntlPolyfill from 'intl';
 
 import manifest from './lib/manifest';
+
+Intl.NumberFormat = IntlPolyfill.NumberFormat;
+Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
