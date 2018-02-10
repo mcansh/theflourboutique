@@ -7,9 +7,11 @@ import Footer from '../components/Footer';
 import Back2Home from '../components/Back2Home';
 import { initGA, logPageView } from '../lib/analytics';
 import withSentry from '../lib/withSentry';
+import Wrapper from './Wrapper';
 
 import { colors } from '../theme';
 
+NProgress.configure({ showSpinner: false });
 Router.onRouteChangeStart = () => NProgress.start();
 Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
@@ -45,13 +47,12 @@ class Page extends React.Component {
             rel="stylesheet"
           />
         </Head>
-        {pathname && pathname !== '/' && <Back2Home />}
-        <div className="wrapper">{children}</div>
+        <Wrapper>{children}</Wrapper>
         <Footer />
         <style jsx global>{`
-          :global(*),
-          :global(*::before),
-          :global(*::after) {
+          *,
+          *::before,
+          *::after {
             box-sizing: border-box;
             font-weight: 300;
             margin: 0;
@@ -63,13 +64,8 @@ class Page extends React.Component {
 
           body {
             font-family: 'Open Sans';
-            text-align: center;
             line-height: 1.15;
             text-size-adjust: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
             font-weight: 300;
             padding-top: env(safe-area-inset-top);
             padding-left: env(safe-area-inset-left);
@@ -82,10 +78,6 @@ class Page extends React.Component {
             min-height: 100vh;
           }
 
-          #nprogress {
-            pointer-events: none;
-          }
-
           #nprogress .bar {
             background: ${colors.pink};
             position: fixed;
@@ -93,33 +85,28 @@ class Page extends React.Component {
             top: 0;
             left: 0;
             width: 100%;
-            height: 2px;
+            height: 0.2rem;
           }
 
           #nprogress .peg {
             display: block;
             position: absolute;
-            right: 0px;
-            width: 100px;
+            right: 0;
+            width: 10rem;
             height: 100%;
-            box-shadow: 0 0 10px ${colors.pink}, 0 0 5px ${colors.pink};
+            box-shadow: 0 0 1rem ${colors.pink}, 0 0 0.5rem ${colors.pink};
             opacity: 1;
-            transform: rotate(3deg) translate(0px, -4px);
+            transform: rotate(3deg) translate(0, -0.4rem);
           }
-        `}</style>
-        <style jsx>{`
-          .wrapper {
-            min-height: calc(100vh - 100px);
-            width: 100vw;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-          }
-          @media (max-width: 700px) {
-            .wrapper {
-              margin-top: 3rem;
+
+          .nprogress-custom-parent {
+            overflow: hidden;
+            position: relative;
             }
+
+          .nprogress-custom-parent #nprogress .spinner,
+          .nprogress-custom-parent #nprogress .bar {
+            position: absolute;
           }
         `}</style>
       </Fragment>
