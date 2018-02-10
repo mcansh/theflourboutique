@@ -19,7 +19,7 @@ module.exports = {
               urlPattern: /^https?.*/,
             },
           ],
-        }),
+        })
       );
     }
     return config;

@@ -36,9 +36,7 @@ const Select = ({
         max-width: 100%;
         width: 100%;
         appearance: none;
-        border: ${error
-          ? `1px solid ${colors.alert}`
-          : '1px solid black'};
+        border: ${error ? `1px solid ${colors.alert}` : '1px solid black'};
         transition: 200ms border ease-in-out;
         will-change: border-color;
         padding: 1rem 1.5rem;
