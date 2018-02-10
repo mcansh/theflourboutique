@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import Head from 'next/head';
 import NProgress from 'nprogress';
-import Router from 'next/router';
+import Router, { withRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import Footer from '../components/Footer';
 import Back2Home from '../components/Back2Home';
@@ -35,7 +35,7 @@ class Page extends React.Component {
     }
   }
   render() {
-    const { title, children, pathname } = this.props;
+    const { title, children, router } = this.props;
     return (
       <Fragment>
         <Head>
@@ -47,6 +47,7 @@ class Page extends React.Component {
             rel="stylesheet"
           />
         </Head>
+        {router && router.pathname && router.pathname !== '/' && <Back2Home />}
         <Wrapper>{children}</Wrapper>
         <Footer />
         <style jsx global>{`
@@ -102,7 +103,7 @@ class Page extends React.Component {
           .nprogress-custom-parent {
             overflow: hidden;
             position: relative;
-            }
+          }
 
           .nprogress-custom-parent #nprogress .spinner,
           .nprogress-custom-parent #nprogress .bar {
@@ -121,7 +122,9 @@ Page.defaultProps = {
 Page.propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string,
-  pathname: PropTypes.string.isRequired,
+  router: PropTypes.shape({
+    pathname: PropTypes.string,
+  }).isRequired,
 };
 
-export default withSentry(Page);
+export default withRouter(withSentry(Page));

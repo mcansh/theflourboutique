@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Page from '../components/Page';
 import { Huge, Paragraph } from '../components/Type';
 import PriceChart from '../components/PriceChart';
@@ -42,8 +41,8 @@ const prices = [
   },
 ];
 
-const Prices = ({ url: { pathname } }) => (
-  <Page pathname={pathname} title="Price Guide">
+const Prices = () => (
+  <Page title="Price Guide">
     <Huge text="The Flour Boutique Price Guide" />
     <PriceChart prices={prices} />
     <Paragraph>
@@ -57,11 +56,5 @@ const Prices = ({ url: { pathname } }) => (
     </Paragraph>
   </Page>
 );
-
-Prices.propTypes = {
-  url: PropTypes.shape({
-    pathname: PropTypes.string,
-  }).isRequired,
-};
 
 export default Prices;

@@ -11,17 +11,17 @@ import Page from '../components/Page';
 import { Huge } from '../components/Type';
 import Order from '../components/Order';
 
-const Orders = ({ url, data: { loading, error, allOrders } }) => {
-  // if (error) {
-  //   return <Huge text={error} />;
-  // }
+const Orders = ({ data: { loading, error, allOrders } }) => {
+  if (error) {
+    return <Page />;
+  }
 
   if (loading) {
     return <Huge text="Loading..." />;
   }
 
   return (
-    <Page pathname={url.pathname} title="All Orders">
+    <Page title="All Orders">
       <Huge text="All Cookie Orders" />
       <ul className="orders">
         <li>
@@ -68,9 +68,6 @@ const Orders = ({ url, data: { loading, error, allOrders } }) => {
 };
 
 Orders.propTypes = {
-  url: PropTypes.shape({
-    pathname: PropTypes.string,
-  }).isRequired,
   data: PropTypes.shape({
     loading: PropTypes.bool,
     error: PropTypes.string,

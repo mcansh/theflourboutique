@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import addDays from 'date-fns/add_days';
@@ -153,9 +152,8 @@ class Order extends Component {
       quantity,
       errors,
     } = this.state;
-    const { url: { pathname } } = this.props;
     return (
-      <Page pathname={pathname} title="Order">
+      <Page title="Order">
         <Logo style={{ marginTop: '6rem' }} />
         <Huge text="Cookie Order Quote" />
         <form onSubmit={this.handleSubmit}>
@@ -249,12 +247,6 @@ class Order extends Component {
     );
   }
 }
-
-Order.propTypes = {
-  url: PropTypes.shape({
-    pathname: PropTypes.string,
-  }).isRequired,
-};
 
 const createOrderMutation = gql`
   mutation createOrder(
