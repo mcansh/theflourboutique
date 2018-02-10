@@ -9,13 +9,12 @@ import redirect from '../lib/redirect';
 import withData from '../lib/withData';
 import Page from '../components/Page';
 import { Huge } from '../components/Type';
-import Back2Home from '../components/Back2Home';
 import Order from '../components/Order';
 
 const Orders = ({ url, data: { loading, error, allOrders } }) => {
-  if (error) {
-    return <Huge text={error} />;
-  }
+  // if (error) {
+  //   return <Huge text={error} />;
+  // }
 
   if (loading) {
     return <Huge text="Loading..." />;
@@ -23,7 +22,6 @@ const Orders = ({ url, data: { loading, error, allOrders } }) => {
 
   return (
     <Page pathname={url.pathname} title="All Orders">
-      <Back2Home />
       <Huge text="All Cookie Orders" />
       <ul className="orders">
         <li>
@@ -35,18 +33,19 @@ const Orders = ({ url, data: { loading, error, allOrders } }) => {
           <p>Quantity:</p>
           <p>Done:</p>
         </li>
-        {allOrders.map(order => (
-          <Order
-            key={order.id}
-            name={order.name}
-            email={order.email}
-            date={format(order.date, 'MM/DD/YYYY')}
-            city={order.city}
-            theme={order.theme}
-            quantity={order.quantity}
-            done={order.done}
-          />
-        ))}
+        {allOrders &&
+          allOrders.map(order => (
+            <Order
+              key={order.id}
+              name={order.name}
+              email={order.email}
+              date={format(order.date, 'MM/DD/YYYY')}
+              city={order.city}
+              theme={order.theme}
+              quantity={order.quantity}
+              done={order.done}
+            />
+          ))}
       </ul>
       <style jsx>{`
         .orders {
