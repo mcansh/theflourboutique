@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FormField from './FormField';
 import Label from './Label';
-import { colors, input } from '../../theme';
+import { input } from '../../theme';
 
 const TextArea = ({ name, onChange, margin, color }) => {
   const lowercaseName = name.toLowerCase();
@@ -23,7 +23,7 @@ const TextArea = ({ name, onChange, margin, color }) => {
           max-width: 100%;
           width: 100%;
           appearance: none;
-          border: 1px solid ${colors.secondary};
+          border: 1px solid black;
           transition: 200ms border ease-in-out;
           will-change: border-color;
           padding: 1rem 1.5rem;

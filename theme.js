@@ -4,6 +4,7 @@ const colors = {
   secondary: '#C6DD7D',
   pink: '#feeeed',
   orange: '#ffbf86',
+  alert: '#c71f16',
 };
 
 const transitions = {
