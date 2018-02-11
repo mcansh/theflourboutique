@@ -5,6 +5,25 @@ import { productName } from '../package.json';
 
 const currentYear = new Date().getFullYear();
 
+// const links = [
+//   {
+//     slug: '/',
+//     text: productName,
+//   },
+//   {
+//     slug: '/prices',
+//     text: 'Price Guide',
+//   },
+//   {
+//     slug: '/order',
+//     text: 'Order',
+//   },
+//   {
+//     slug: '/shop',
+//     text: 'Shop',
+//   },
+// ];
+
 const Footer = () => (
   <nav>
     <Link href="/prices" prefetch>
@@ -18,6 +37,9 @@ const Footer = () => (
     </p>
     <Link href="/order" prefetch>
       <a>Order</a>
+    </Link>
+    <Link href="/shop" prefetch>
+      <a>Shop</a>
     </Link>
     <style jsx>{`
       nav {
@@ -73,6 +95,7 @@ const Footer = () => (
         nav {
           flex-direction: column;
           margin: 2rem 0;
+          height: auto;
         }
 
         p {
