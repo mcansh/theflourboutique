@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
-import withData from '../lib/withData';
-import Page from '../components/Page';
+import withData from '../../lib/withData';
+import Page from '../../components/Page';
 
 const Shop = ({ data: { loading, error, allProducts } }) => {
   if (error) {
