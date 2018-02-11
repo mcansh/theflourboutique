@@ -51,12 +51,12 @@ const H2 = ({ text }) => (
   </h2>
 );
 
-const Paragraph = ({ children }) => (
+const Paragraph = ({ children, size }) => (
   <p>
     {children}
     <style jsx>{`
       p {
-        font-size: 1.6rem;
+        font-size: ${size}rem;
         text-align: left;
         display: flex;
         justify-content: center;
@@ -82,7 +82,16 @@ const Paragraph = ({ children }) => (
 const textProps = {
   text: PropTypes.string.isRequired,
 };
-Paragraph.propTypes = { children: PropTypes.node.isRequired };
+
+Paragraph.propTypes = {
+  children: PropTypes.node.isRequired,
+  size: PropTypes.number,
+};
+
+Paragraph.defaultProps = {
+  size: 1.6,
+};
+
 Huge.propTypes = textProps;
 H2.propTypes = textProps;
 
