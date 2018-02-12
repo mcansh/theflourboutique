@@ -30,9 +30,8 @@ class Login extends Component {
   };
 
   render() {
-    const { url } = this.props;
     return (
-      <Page pathname={url.pathname} title="Login">
+      <Page title="Login">
         <form onSubmit={this.handleSubmit}>
           <Input
             name="Email"
@@ -67,9 +66,6 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  url: PropTypes.shape({
-    pathname: PropTypes.string,
-  }).isRequired,
   mutate: PropTypes.func.isRequired,
 };
 

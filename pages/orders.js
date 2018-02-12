@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import format from 'date-fns/format';
-import cookies from 'next-cookies';
-import decode from 'jsonwebtoken/decode';
-import redirect from '../lib/redirect';
+import checkForAuth from '../lib/checkForAuth';
 import withData from '../lib/withData';
 import Page from '../components/Page';
 import { Huge } from '../components/Type';
@@ -106,19 +104,7 @@ const AllOrdersQuery = gql`
 `;
 
 Orders.getInitialProps = ctx => {
-  const { res } = ctx;
-  const { token } = cookies(ctx);
-  try {
-    if (token) {
-      const user = decode(token);
-      return { user };
-    }
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.log('Not Authorized, redirecting...', error);
-    redirect({ res, url: '/login' });
-  }
-  return {};
+  checkForAuth(ctx);
 };
 
 const GraphQLAllOrders = graphql(AllOrdersQuery, {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
+import checkForAuth from '../../lib/checkForAuth';
 import withData from '../../lib/withData';
 import Page from '../../components/Page';
 
@@ -10,6 +10,10 @@ import { Huge } from '../../components/Type';
 import Input from '../../components/form/Input';
 
 class NewProduct extends Component {
+  static getInitialProps = ctx => {
+    checkForAuth(ctx);
+  };
+
   state = {
     name: '',
     description: '',
@@ -34,7 +38,7 @@ class NewProduct extends Component {
   render() {
     const { name, description, price } = this.state;
     return (
-      <Page title="Order">
+      <Page title="New Cookie">
         <Huge text="Create New Cookie" />
         <form onSubmit={this.handleSubmit}>
           <Input

@@ -21,7 +21,11 @@ const Shop = ({ data: { loading, error, allProducts } }) => {
     return <p>Loading...</p>;
   }
 
-  return <Page>{allProducts.map(product => <p>{product.name}</p>)}</Page>;
+  return (
+    <Page Page title="Shop">
+      {allProducts.map(product => <p>{product.name}</p>)}
+    </Page>
+  );
 };
 
 Shop.propTypes = {
