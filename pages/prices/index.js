@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
-import withData from '../lib/withData';
-import Page from '../components/Page';
-import { Huge, Paragraph } from '../components/Type';
-import PriceChart from '../components/PriceChart';
+import withData from '../../lib/withData';
+import Page from '../../components/Page';
+import { Huge, Paragraph } from '../../components/Type';
+import PriceChart from '../../components/PriceChart';
 
 const Prices = ({ data: { loading, error, allPrices } }) => {
   if (error) {
