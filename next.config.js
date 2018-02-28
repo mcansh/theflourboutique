@@ -1,24 +1,12 @@
-const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
-const { name } = require('./package.json');
+const NextWorkboxWebpackPlugin = require('@pwa/next-workbox-webpack-plugin');
 
 module.exports = {
-  webpack: config => {
-    if (process.env.NODE_ENV === 'production') {
+  webpack: (config, { isServer, dev, buildId, config: { distDir } }) => {
+    if (!isServer && !dev) {
       config.plugins.push(
-        new SWPrecacheWebpackPlugin({
-          cacheId: name,
-          filename: 'sw.js',
-          minify: true,
-          staticFileGlobs: [
-            'static/**/*', // Precache all static files by default
-          ],
-          staticFileGlobsIgnorePatterns: [/\.next\//],
-          runtimeCaching: [
-            {
-              handler: 'networkFirst',
-              urlPattern: /^https?.*/,
-            },
-          ],
+        new NextWorkboxWebpackPlugin({
+          distDir,
+          buildId,
         })
       );
     }
