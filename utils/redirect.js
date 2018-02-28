@@ -1,7 +1,8 @@
 import Router from 'next/router';
 
-const redirect = ({ res, url, type = '302' }) => {
-  if (res) {
+const redirect = ({ ctx, url = '/', type = 302 }) => {
+  if (ctx && ctx.res) {
+    const { res } = ctx;
     res.writeHead(type, {
       Location: url,
     });
@@ -10,6 +11,7 @@ const redirect = ({ res, url, type = '302' }) => {
   } else {
     Router.replace(url);
   }
+  return {};
 };
 
 export default redirect;
