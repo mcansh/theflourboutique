@@ -39,10 +39,10 @@ class Orders extends Component {
     return (
       <Page title="All Orders">
         <Query query={AllOrdersQuery}>
-          {({ loading, data: { allOrders } }) =>
-            loading ? (
-              <Huge text="Loading..." />
-            ) : (
+          {({ loading, error, data: { allOrders } }) => {
+            if (loading) return <Huge text="Loading..." />;
+            if (error) return <Huge text="Error :(" />;
+            return (
               <Fragment>
                 <Huge text="All Cookie Orders" />
                 <ul className="orders">
@@ -86,8 +86,8 @@ class Orders extends Component {
                   }
                 `}</style>
               </Fragment>
-            )
-          }
+            );
+          }}
         </Query>
       </Page>
     );

@@ -1,51 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql } from 'react-apollo';
+import React, { Fragment } from 'react';
+import { Query } from 'react-apollo';
 import gql from 'apollo-boost';
 import withData from '../../lib/withData';
 import Page from '../../components/Page';
-
-const Shop = ({ data: { loading, error, allProducts } }) => {
-  if (error) {
-    return (
-      <p>
-        An error has occured and we have been notified, sorry about that{' '}
-        <span role="img" aria-label="sad face emoji">
-          ☹️
-        </span>
-      </p>
-    );
-  }
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  return (
-    <Page Page title="Shop">
-      {allProducts.map(product => <p>{product.name}</p>)}
-    </Page>
-  );
-};
-
-Shop.propTypes = {
-  data: PropTypes.shape({
-    loading: PropTypes.bool,
-    error: PropTypes.oneOfType([
-      PropTypes.bool,
-      PropTypes.array,
-      PropTypes.shape({}),
-    ]),
-    allProducts: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string,
-        price: PropTypes.number,
-        description: PropTypes.string,
-        image: PropTypes.string,
-      })
-    ),
-  }).isRequired,
-};
+import { Huge } from '../../components/Type';
 
 const AllProductsQuery = gql`
   query allProducts {
@@ -58,10 +16,20 @@ const AllProductsQuery = gql`
   }
 `;
 
-const GraphQLAllProducts = graphql(AllProductsQuery, {
-  props: ({ data }) => ({
-    data,
-  }),
-})(Shop);
+const Shop = () => (
+  <Page Page title="Shop">
+    <Query query={AllProductsQuery}>
+      {({ loading, error, data: { allProducts } }) => {
+        if (loading) return <Huge text="Loading..." />;
+        if (error) return <Huge text="Error :(" />;
+        return (
+          <Fragment>
+            {allProducts.map(product => <p>{product.name}</p>)}
+          </Fragment>
+        );
+      }}
+    </Query>
+  </Page>
+);
 
-export default withData(GraphQLAllProducts);
+export default withData(Shop);
