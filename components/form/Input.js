@@ -16,6 +16,7 @@ const Input = ({
   margin,
   color,
   error,
+  autocomplete,
 }) => {
   const lowercaseName = name.toLowerCase();
   return (
@@ -34,6 +35,7 @@ const Input = ({
         min={min}
         max={max}
         style={{ ...input }}
+        autoComplete={autocomplete}
       />
       <style jsx>{`
         input {
@@ -68,6 +70,7 @@ Input.defaultProps = {
   margin: 0,
   color: 'black',
   error: '',
+  autocomplete: '',
 };
 
 Input.propTypes = {
@@ -82,6 +85,7 @@ Input.propTypes = {
   margin: PropTypes.string,
   color: PropTypes.string,
   error: PropTypes.string,
+  autocomplete: PropTypes.string,
 };
 
 export default Input;

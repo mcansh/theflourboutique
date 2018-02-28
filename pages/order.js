@@ -166,6 +166,7 @@ class Order extends Component {
             margin="0 0 1rem 0"
             color="rgba(0, 0, 0, 0.4)"
             error={errors.name}
+            autocomplete="name"
           />
           <Input
             name="Email"
@@ -176,6 +177,7 @@ class Order extends Component {
             margin="0 0 1rem 0"
             color="rgba(0, 0, 0, 0.4)"
             error={errors.email}
+            autocomplete="email"
           />
           <Input
             name="City"
@@ -186,6 +188,7 @@ class Order extends Component {
             margin="0 0 1rem 0"
             color="rgba(0, 0, 0, 0.4)"
             error={errors.city}
+            autocomplete="address-level2"
           />
           <Input
             name="Date"
