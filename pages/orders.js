@@ -1,90 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql } from 'react-apollo';
-import gql from 'graphql-tag';
-import format from 'date-fns/format';
-import checkForAuth from '../lib/checkForAuth';
+import React, { Component, Fragment } from 'react';
+import { injectIntl, intlShape } from 'react-intl';
+import { Query } from 'react-apollo';
+import { gql } from 'apollo-boost';
+import checkForAuth from '../utils/checkForAuth';
 import withData from '../lib/withData';
 import Page from '../components/Page';
 import { Huge } from '../components/Type';
 import Order from '../components/Order';
-
-const Orders = ({ data: { loading, error, allOrders } }) => {
-  if (error) {
-    return <Page />;
-  }
-
-  if (loading) {
-    return <Huge text="Loading..." />;
-  }
-
-  return (
-    <Page title="All Orders">
-      <Huge text="All Cookie Orders" />
-      <ul className="orders">
-        <li>
-          <p>Name:</p>
-          <p>Email:</p>
-          <p>Date:</p>
-          <p>City:</p>
-          <p>Theme:</p>
-          <p>Quantity:</p>
-          <p>Done:</p>
-        </li>
-        {allOrders &&
-          allOrders.map(order => (
-            <Order
-              key={order.id}
-              name={order.name}
-              email={order.email}
-              date={format(order.date, 'MM/DD/YYYY')}
-              city={order.city}
-              theme={order.theme}
-              quantity={order.quantity}
-              done={order.done}
-            />
-          ))}
-      </ul>
-      <style jsx>{`
-        .orders {
-          width: 100%;
-          padding: 0;
-        }
-        li {
-          width: 100%;
-          line-height: 1.5;
-          list-style: none;
-          display: flex;
-          font-size: 1.2rem;
-        }
-        li > p {
-          flex: 1;
-        }
-      `}</style>
-    </Page>
-  );
-};
-
-Orders.propTypes = {
-  data: PropTypes.shape({
-    loading: PropTypes.bool,
-    error: PropTypes.string,
-    allOrders: PropTypes.arrayOf(
-      PropTypes.shape({
-        city: PropTypes.string,
-        comments: PropTypes.string,
-        date: PropTypes.number,
-        done: PropTypes.bool,
-        email: PropTypes.string,
-        flavor: PropTypes.string,
-        id: PropTypes.string,
-        name: PropTypes.string,
-        quantity: PropTypes.number,
-        theme: PropTypes.string,
-      })
-    ),
-  }).isRequired,
-};
 
 const AllOrdersQuery = gql`
   query allOrders {
@@ -103,14 +25,73 @@ const AllOrdersQuery = gql`
   }
 `;
 
-Orders.getInitialProps = ctx => {
-  checkForAuth(ctx);
-};
+class Orders extends Component {
+  static async getInitialProps(ctx) {
+    await checkForAuth(ctx);
+  }
 
-const GraphQLAllOrders = graphql(AllOrdersQuery, {
-  props: ({ data }) => ({
-    data,
-  }),
-})(Orders);
+  static propTypes = {
+    intl: intlShape.isRequired,
+  };
 
-export default withData(GraphQLAllOrders);
+  render() {
+    const { intl: { formatDate } } = this.props;
+    return (
+      <Page title="All Orders">
+        <Query query={AllOrdersQuery}>
+          {({ loading, data: { allOrders } }) =>
+            loading ? (
+              <Huge text="Loading..." />
+            ) : (
+              <Fragment>
+                <Huge text="All Cookie Orders" />
+                <ul className="orders">
+                  <li>
+                    <p>Name:</p>
+                    <p>Email:</p>
+                    <p>Date:</p>
+                    <p>City:</p>
+                    <p>Theme:</p>
+                    <p>Quantity:</p>
+                    <p>Done:</p>
+                  </li>
+                  {allOrders &&
+                    allOrders.map(order => (
+                      <Order
+                        key={order.id}
+                        name={order.name}
+                        email={order.email}
+                        date={formatDate(order.date)}
+                        city={order.city}
+                        theme={order.theme}
+                        quantity={order.quantity}
+                        done={order.done}
+                      />
+                    ))}
+                </ul>
+                <style jsx>{`
+                  .orders {
+                    width: 100%;
+                    padding: 0;
+                  }
+                  li {
+                    width: 100%;
+                    line-height: 1.5;
+                    list-style: none;
+                    display: flex;
+                    font-size: 1.2rem;
+                  }
+                  li > p {
+                    flex: 1;
+                  }
+                `}</style>
+              </Fragment>
+            )
+          }
+        </Query>
+      </Page>
+    );
+  }
+}
+
+export default injectIntl(withData(Orders));
