@@ -1,5 +1,6 @@
 import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
+import { ServerStyleSheet } from 'styled-components';
 import { colors } from '../theme';
 import { description } from '../package.json';
 
@@ -16,10 +17,21 @@ const favicons = sizes.map(size => (
 
 class MyDocument extends Document {
   static async getInitialProps(context) {
+    // styled-components
+    const { renderPage } = context;
+    const sheet = new ServerStyleSheet();
+    const page = renderPage(App => props =>
+      sheet.collectStyles(<App {...props} />)
+    );
+    const styleTags = sheet.getStyleElement();
+
+    // react-intl
     const props = await super.getInitialProps(context);
     const { req: { locale, localeDataScript } } = context;
     return {
+      ...page,
       ...props,
+      styleTags,
       locale,
       localeDataScript,
     };
