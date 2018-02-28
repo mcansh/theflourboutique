@@ -11,7 +11,7 @@
   "scripts": {
     "start": "node -r @std/esm ./server.js",
     "dev": "next",
-    "build": "next build",
+    "build": "next build && node ./scripts/default-lang",
     "dev:server": "nodemon --watch ./server.js -r @std/esm server",
     "test": "eslint ./",
     "deploy": "now --docker && now alias",
