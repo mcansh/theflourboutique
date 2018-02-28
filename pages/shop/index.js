@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Query } from 'react-apollo';
-import gql from 'apollo-boost';
+import { gql } from 'apollo-boost';
 import withData from '../../lib/withData';
 import Page from '../../components/Page';
 import { Huge } from '../../components/Type';
@@ -17,7 +17,7 @@ const AllProductsQuery = gql`
 `;
 
 const Shop = () => (
-  <Page Page title="Shop">
+  <Page title="Shop">
     <Query query={AllProductsQuery}>
       {({ loading, error, data: { allProducts } }) => {
         if (loading) return <Huge text="Loading..." />;
