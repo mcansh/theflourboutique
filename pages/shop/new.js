@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import gql from 'graphql-tag';
-import checkForAuth from '../../lib/checkForAuth';
+import gql from 'apollo-boost';
+import checkForAuth from '../../utils/checkForAuth';
 import withData from '../../lib/withData';
 import Page from '../../components/Page';
 

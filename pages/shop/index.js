@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
-import gql from 'graphql-tag';
+import gql from 'apollo-boost';
 import withData from '../../lib/withData';
 import Page from '../../components/Page';
 
