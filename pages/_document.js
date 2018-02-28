@@ -38,9 +38,8 @@ class MyDocument extends Document {
   }
 
   render() {
-    const polyfill = `https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.${
-      this.props.locale
-    }`;
+    const { styleTags, locale } = this.props;
+    const polyfill = `https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.${locale}`;
     return (
       <html lang="en">
         <Head>
@@ -61,6 +60,7 @@ class MyDocument extends Document {
           <link rel="shortcut icon" href="/static/logo.png" />
           <link rel="apple-touch-icon" href="/static/apple-touch-icon.png" />
           {favicons}
+          {styleTags}
         </Head>
         <body>
           <Main />
