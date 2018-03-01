@@ -4902,15 +4902,15 @@ pascalcase@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/pascalcase/-/pascalcase-0.1.1.tgz#b363e55e8006ca6fe21784d2db22bd15d7917f14"
 
-passport-local-mongoose@4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/passport-local-mongoose/-/passport-local-mongoose-4.5.0.tgz#1c43afd758371e005c5aeca780d6120b077e6065"
+passport-local-mongoose@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/passport-local-mongoose/-/passport-local-mongoose-5.0.0.tgz#7a482bd5a256b6112b616b339ee7d1f4e0bc51b3"
   dependencies:
     debug "^3.1.0"
     generaterr "^1.5.0"
     passport-local "^1.0.0"
     scmp "^2.0.0"
-    semver "^5.4.1"
+    semver "^5.5.0"
 
 passport-local@1.0.0, passport-local@^1.0.0:
   version "1.0.0"
@@ -6114,7 +6114,7 @@ semver-diff@^2.0.0:
   dependencies:
     semver "^5.0.3"
 
-"semver@2 || 3 || 4 || 5", semver@^5.0.3, semver@^5.1.0, semver@^5.3.0, semver@^5.4.1:
+"semver@2 || 3 || 4 || 5", semver@^5.0.3, semver@^5.1.0, semver@^5.3.0:
   version "5.4.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.4.1.tgz#e059c09d8571f0540823733433505d3a2f00b18e"
 
