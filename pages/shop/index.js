@@ -1,9 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Query } from 'react-apollo';
 import { gql } from 'apollo-boost';
+import styled from 'styled-components';
 import withData from '../../lib/withData';
 import Page from '../../components/Page';
 import { Huge } from '../../components/Type';
+import Product from '../../components/Product';
 
 const AllProductsQuery = gql`
   query allProducts {
@@ -12,8 +14,15 @@ const AllProductsQuery = gql`
       price
       description
       image
+      id
     }
   }
+`;
+
+const ProductWrap = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
 `;
 
 const Shop = () => (
@@ -23,9 +32,11 @@ const Shop = () => (
         if (loading) return <Huge text="Loading..." />;
         if (error) return <Huge text="Error :(" />;
         return (
-          <Fragment>
-            {allProducts.map(product => <p>{product.name}</p>)}
-          </Fragment>
+          <ProductWrap>
+            {allProducts.map(product => (
+              <Product key={product.id} product={product} />
+            ))}
+          </ProductWrap>
         );
       }}
     </Query>

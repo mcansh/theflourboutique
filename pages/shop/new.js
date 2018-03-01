@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import gql from 'apollo-boost';
+import { gql } from 'apollo-boost';
 import checkForAuth from '../../utils/checkForAuth';
 import withData from '../../lib/withData';
 import Page from '../../components/Page';
-
 import { Button } from '../../components/Button';
 import { Huge } from '../../components/Type';
 import Input from '../../components/form/Input';
@@ -18,6 +17,26 @@ class NewProduct extends Component {
     name: '',
     description: '',
     price: 0,
+    image: '',
+  };
+
+  handleUpload = async e => {
+    e.preventDefault();
+    const [file] = e.target.files;
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', process.env.CLOUDINARY_PRESET);
+
+    const url = `https://api.cloudinary.com/v1_1/${process.env
+      .CLOUDINARY_NAME || 'dof0zryca'}/image/upload`;
+
+    const res = await fetch(url, { method: 'POST', body: formData }).then(r =>
+      r.json()
+    );
+
+    const { public_id, format } = res;
+
+    this.setState({ image: public_id });
   };
 
   handleOnChange = e => {
@@ -29,14 +48,14 @@ class NewProduct extends Component {
   handleSubmit = async e => {
     e.preventDefault();
 
-    const { name, description, price } = this.state;
+    const { name, description, price, image } = this.state;
 
     const { createProduct } = this.props;
-    createProduct(name, description, parseFloat(price));
+    createProduct(name, description, parseFloat(price), image);
   };
 
   render() {
-    const { name, description, price } = this.state;
+    const { name, description, price, image } = this.state;
     return (
       <Page title="New Cookie">
         <Huge text="Create New Cookie" />
@@ -68,6 +87,12 @@ class NewProduct extends Component {
             margin="0 0 1rem 0"
             color="rgba(0, 0, 0, 0.4)"
           />
+          <input
+            type="file"
+            name="image"
+            onChange={this.handleUpload}
+            value={image}
+          />
           <Button basic text="Create" />
         </form>
         <style jsx>{`
@@ -87,23 +112,28 @@ const createProductMutation = gql`
     $name: String!
     $description: String
     $price: Float!
+    $image: String
   ) {
-    createProduct(name: $name, description: $description, price: $price) {
-      name
-      description
-      price
+    createProduct(
+      name: $name
+      description: $description
+      price: $price
+      image: $image
+    ) {
+      id
     }
   }
 `;
 
 const GraphQLProduct = graphql(createProductMutation, {
   props: ({ mutate }) => ({
-    createProduct: (name, description, price) =>
+    createProduct: (name, description, price, image) =>
       mutate({
         variables: {
           name,
           description,
           price,
+          image,
         },
       }),
   }),
