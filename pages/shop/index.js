@@ -23,6 +23,8 @@ const ProductWrap = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1rem;
+  width: 95vw;
+  margin: 0 auto;
 `;
 
 const Shop = () => (
