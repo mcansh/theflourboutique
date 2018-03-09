@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { gql } from 'apollo-boost';
+import title from 'title';
 import checkForAuth from '../../utils/checkForAuth';
 import withData from '../../lib/withData';
 import Page from '../../components/Page';
@@ -10,7 +11,8 @@ import Input from '../../components/form/Input';
 
 class NewProduct extends Component {
   static getInitialProps = ctx => {
-    checkForAuth(ctx);
+    const user = checkForAuth(ctx);
+    return user;
   };
 
   state = {
@@ -34,7 +36,7 @@ class NewProduct extends Component {
       r.json()
     );
 
-    const { public_id, format } = res;
+    const { public_id } = res;
 
     this.setState({ image: public_id });
   };
@@ -42,16 +44,22 @@ class NewProduct extends Component {
   handleOnChange = e => {
     const { name, value } = e.target;
     const lowercaseName = name.toLowerCase();
-    this.setState({ [lowercaseName]: value });
+    this.setState({
+      [lowercaseName]: lowercaseName === 'name' ? title(value) : value,
+    });
   };
 
   handleSubmit = async e => {
     e.preventDefault();
 
+    const {
+      createProduct,
+      user: { authData: { email: createdBy } },
+    } = this.props;
+
     const { name, description, price, image } = this.state;
 
-    const { createProduct } = this.props;
-    createProduct(name, description, parseFloat(price), image);
+    createProduct(name, description, parseFloat(price), image, createdBy);
   };
 
   render() {
@@ -87,12 +95,12 @@ class NewProduct extends Component {
             margin="0 0 1rem 0"
             color="rgba(0, 0, 0, 0.4)"
           />
-          <input
+          {/* <input
             type="file"
             name="image"
             onChange={this.handleUpload}
             value={image}
-          />
+          /> */}
           <Button basic text="Create" />
         </form>
         <style jsx>{`
@@ -113,12 +121,14 @@ const createProductMutation = gql`
     $description: String
     $price: Float!
     $image: String
+    $createdBy: String!
   ) {
     createProduct(
       name: $name
       description: $description
       price: $price
       image: $image
+      createdBy: $createdBy
     ) {
       id
     }
@@ -127,13 +137,14 @@ const createProductMutation = gql`
 
 const GraphQLProduct = graphql(createProductMutation, {
   props: ({ mutate }) => ({
-    createProduct: (name, description, price, image) =>
+    createProduct: (name, description, price, image, createdBy) =>
       mutate({
         variables: {
           name,
           description,
           price,
           image,
+          createdBy,
         },
       }),
   }),
