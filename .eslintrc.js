@@ -1,3 +1,6 @@
 module.exports = {
-  extends: ['mcansh']
+  extends: ['mcansh'],
+  rules: {
+    'no-unused-expressions': ["error", { "allowTaggedTemplates": true }]
+  }
 };
