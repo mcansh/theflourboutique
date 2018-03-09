@@ -39,7 +39,10 @@ const imageThumbUrl = id =>
 
 const Product = ({ product: { id, name, description, price, image } }) => (
   <ProductSquare>
-    <Link href={`/shop/product?${id}`} as={`/shop/${slugify(name)}`}>
+    <Link
+      href={`/shop/product?${id}`}
+      as={`/shop/${slugify(name.toLowerCase())}`}
+    >
       <a>
         <ImageWrap>
           <ProgressiveImage
